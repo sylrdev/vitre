@@ -1,0 +1,9 @@
+# Manifest for this project. See https://luaupm.com/docs
+# Add dependencies with `embr add <scope/name>`, then run `embr install`.
+
+[dependencies]
+
+[tools]
+rojo = "rojo-rbx/rojo@7.7.1"
+wally = "upliftgames/wally@0.3.2"
+wally-package-types = "johnnymorganz/wally-package-types@1.7.0"

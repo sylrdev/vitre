@@ -1,0 +1,15 @@
+{
+  "name": "vitre-dev",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Packages": {
+        "$className": "Folder",
+        "Vitre": {
+          "$path": "src/"
+        }
+      }
+    }
+  }
+}
