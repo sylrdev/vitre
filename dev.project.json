@@ -5,10 +5,18 @@
 
     "ReplicatedStorage": {
       "Packages": {
-        "$className": "Folder",
+        "$path": "Packages/",
         "Vitre": {
           "$path": "src/"
         }
+      },
+
+      "DevPackages": {
+        "$path": "DevPackages"
+      },
+
+      "Stories": {
+        "$path": "stories/"
       }
     }
   }
