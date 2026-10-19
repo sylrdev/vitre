@@ -1,0 +1,14 @@
+[creator]
+type = "user"
+id = 1185965075
+
+[codegen]
+style = "flat"
+strip_extension = true
+ts_declaration = false
+
+[inputs.images]
+path = "images/*"
+output_path = "src/Images.luau"
+packable = false
+type = "image"

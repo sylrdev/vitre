@@ -4,3 +4,4 @@ Packages/
 DevPackages/
 
 sourcemap.json
+.env
