@@ -1,15 +1,18 @@
 local Vide = require("../Vide")
+local Images = require("./Images")
 local Theme = require("./Theme")
 local Types = require("./Types")
 
 local create = Vide.create
 local read = Vide.read
+local source = Vide.source
 
 local DEFAULT_PROPS = {
 	SIZE = Vector2.new(400, 450),
 	POSITION = Vector2.new(Theme.STROKE_THICKNESS, Theme.STROKE_THICKNESS),
 	TITLE = "Window",
 }
+local HEADER_HEIGHT = 20
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
@@ -18,12 +21,19 @@ type Props = {
 }
 
 return function(props: Props)
+	local collapsed = source(false)
+
 	--selene:allow(mixed_table)
 	return create("Frame") {
 		Name = "VitreWindow",
 		Size = function()
 			local size = read(props.Size) :: Vector2 or DEFAULT_PROPS.SIZE
-			return UDim2.fromOffset(size.X, size.Y)
+
+			if collapsed() == true then
+				return UDim2.fromOffset(size.X, HEADER_HEIGHT)
+			else
+				return UDim2.fromOffset(size.X, size.Y)
+			end
 		end,
 		Position = function()
 			local position = read(props.Position) :: Vector2 or DEFAULT_PROPS.POSITION
@@ -56,6 +66,19 @@ return function(props: Props)
 
 			create("ImageButton") {
 				Size = UDim2.fromOffset(20, 20),
+				BackgroundTransparency = 1,
+				Image = function()
+					if collapsed() == true then
+						return Images.ArrowRight
+					else
+						return Images.ArrowDown
+					end
+				end,
+				ImageColor3 = Theme.COLOR.TEXT,
+
+				Activated = function()
+					collapsed(not collapsed())
+				end,
 			},
 
 			create("TextLabel") {
@@ -77,6 +100,9 @@ return function(props: Props)
 			Name = "WidgetContainer",
 			BackgroundColor3 = Theme.COLOR.WINDOW_BACKGROUND,
 			ScrollBarThickness = 8,
+			Visible = function()
+				return collapsed() == false
+			end,
 
 			create("UIFlexItem") {
 				FlexMode = Enum.UIFlexMode.Fill,
