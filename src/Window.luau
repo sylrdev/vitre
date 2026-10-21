@@ -1,8 +1,7 @@
-local UserInputService = game:GetService("UserInputService")
-
-local Tailwind = require("../Tailwind")
 local Vide = require("../Vide")
+local Images = require("./Images")
 local Internal = require("./Internal")
+local Theme = require("./Theme")
 local Types = require("./Types")
 
 local create = Vide.create
@@ -14,11 +13,13 @@ local effect = Vide.effect
 
 local DEFAULT_PROPS = {
 	SIZE = Vector2.new(400, 450),
-	USER_INPUT_SERVICE = UserInputService,
+	TITLE = "Window",
 }
+local HEADER_HEIGHT = 20
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
+	Title: Types.Prop<string>?,
 }
 
 return function(props: Props)
@@ -32,6 +33,8 @@ return function(props: Props)
 	local initialFramePosition = UDim2.new()
 	local framePosition = source(initialFramePosition)
 	local absoluteFrameSize = source(Vector2.zero)
+
+	local collapsed = source(false)
 
 	local connection1 = Internal.UserInputService.InputBegan:Connect(function(inputObject: InputObject)
 		if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
@@ -105,12 +108,24 @@ return function(props: Props)
 		Name = "VitreWindow",
 		Size = function()
 			local size = read(props.Size) :: Vector2 or DEFAULT_PROPS.SIZE
-			return UDim2.fromOffset(size.X, size.Y)
+
+			if collapsed() == true then
+				return UDim2.fromOffset(size.X, HEADER_HEIGHT)
+			else
+				return UDim2.fromOffset(size.X, size.Y)
+			end
 		end,
 		Position = calculatedFramePosition,
+		BackgroundTransparency = 1,
 
 		changed("Position", framePosition :: any),
 		changed("AbsoluteSize", absoluteFrameSize :: any),
+
+		create("UIStroke") {
+			Color = Theme.COLOR.STROKE,
+			LineJoinMode = Enum.LineJoinMode.Miter,
+			Thickness = Theme.STROKE_THICKNESS,
+		},
 
 		create("UIListLayout") {
 			HorizontalFlex = Enum.UIFlexAlignment.Fill,
@@ -118,8 +133,8 @@ return function(props: Props)
 
 		create("Frame") {
 			Name = "Header",
-			Size = UDim2.fromOffset(0, 20),
-			BackgroundColor3 = Tailwind.rose[400],
+			Size = UDim2.fromOffset(0, HEADER_HEIGHT),
+			BackgroundColor3 = Theme.COLOR.HEADER,
 
 			MouseEnter = function()
 				mouseHovering = true
@@ -128,10 +143,51 @@ return function(props: Props)
 			MouseLeave = function()
 				mouseHovering = false
 			end,
+
+			create("UIListLayout") {
+				FillDirection = Enum.FillDirection.Horizontal,
+				HorizontalFlex = Enum.UIFlexAlignment.SpaceBetween,
+				VerticalAlignment = Enum.VerticalAlignment.Center,
+			},
+
+			create("ImageButton") {
+				Size = UDim2.fromOffset(HEADER_HEIGHT, HEADER_HEIGHT),
+				BackgroundTransparency = 1,
+				Image = function()
+					if collapsed() == true then
+						return Images.ArrowRight
+					else
+						return Images.ArrowDown
+					end
+				end,
+
+				Activated = function()
+					collapsed(not collapsed())
+				end,
+			},
+
+			create("TextLabel") {
+				AutomaticSize = Enum.AutomaticSize.XY,
+				BackgroundTransparency = 1,
+				FontFace = Theme.FONT.HEADER,
+				Text = props.Title or DEFAULT_PROPS.TITLE,
+				TextColor3 = Theme.COLOR.TEXT,
+				TextSize = 15,
+			},
+
+			create("Frame") {
+				Name = "_",
+				Size = UDim2.fromOffset(HEADER_HEIGHT, HEADER_HEIGHT),
+				BackgroundTransparency = 1,
+			},
 		},
 
 		create("ScrollingFrame") {
 			Name = "WidgetContainer",
+			BackgroundColor3 = Theme.COLOR.WINDOW_BACKGROUND,
+			Visible = function()
+				return collapsed() == false
+			end,
 
 			create("UIFlexItem") {
 				FlexMode = Enum.UIFlexMode.Fill,
