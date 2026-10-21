@@ -78,12 +78,18 @@ return function(props: Props)
 	effect(function()
 		--selene:allow(shadowing)
 		local mousePosition = mousePosition()
+		--selene:allow(shadowing)
+		local absoluteFrameSize = absoluteFrameSize()
+		local parent = Internal.Parent()
 
 		local diffX = mousePosition.X - initialMousePosition.X
 		local diffY = mousePosition.Y - initialMousePosition.Y
 
-		local newX = initialFramePosition.X.Offset + diffX
-		local newY = initialFramePosition.Y.Offset + diffY
+		local maxX = parent.AbsoluteSize.X - absoluteFrameSize.X
+		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize.Y
+
+		local newX = math.clamp(initialFramePosition.X.Offset + diffX, 0, maxX)
+		local newY = math.clamp(initialFramePosition.Y.Offset + diffY, 0, maxY)
 
 		calculatedFramePosition(UDim2.fromOffset(newX, newY))
 	end)

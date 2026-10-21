@@ -6,5 +6,5 @@ local source = Vide.source
 
 return {
 	UserInputService = UserInputService,
-	Parent = source(),
+	Parent = source() :: Vide.Source<GuiObject>,
 }
