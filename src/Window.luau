@@ -13,13 +13,20 @@ local effect = Vide.effect
 
 local DEFAULT_PROPS = {
 	SIZE = Vector2.new(400, 450),
+	START_POSITION = Vector2.new(Theme.STROKE_THICKNESS, Theme.STROKE_THICKNESS),
 	TITLE = "Window",
+	CAN_COLLAPSE = true,
+	CAN_DRAG = true,
 }
 local HEADER_HEIGHT = 20
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
+	StartPosition: Vector2?,
 	Title: Types.Prop<string>?,
+	CanCollapse: boolean?,
+	CanDrag: boolean?,
+	Widgets: { any }?,
 }
 
 return function(props: Props)
@@ -30,7 +37,10 @@ return function(props: Props)
 	local initialMousePosition = Vector2.zero
 	local mousePosition = source(initialMousePosition)
 
-	local initialFramePosition = UDim2.new()
+	local initialFramePosition = (function()
+		local startPosition = props.StartPosition or DEFAULT_PROPS.START_POSITION
+		return UDim2.fromOffset(startPosition.X, startPosition.Y)
+	end)()
 	local framePosition = source(initialFramePosition)
 	local absoluteFrameSize = source(Vector2.zero)
 
@@ -38,6 +48,10 @@ return function(props: Props)
 
 	local connection1 = Internal.UserInputService.InputBegan:Connect(function(inputObject: InputObject)
 		if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
+			return
+		end
+
+		if props.CanDrag == false then
 			return
 		end
 
@@ -55,6 +69,10 @@ return function(props: Props)
 			return
 		end
 
+		if props.CanDrag == false then
+			return
+		end
+
 		dragging = false
 
 		-- this somehow fixes the weird snapping
@@ -66,6 +84,10 @@ return function(props: Props)
 
 	local connection3 = Internal.UserInputService.InputChanged:Connect(function(inputObject: InputObject)
 		if inputObject.UserInputType ~= Enum.UserInputType.MouseMovement then
+			return
+		end
+
+		if props.CanDrag == false then
 			return
 		end
 
@@ -88,11 +110,11 @@ return function(props: Props)
 		local diffX = mousePosition.X - initialMousePosition.X
 		local diffY = mousePosition.Y - initialMousePosition.Y
 
-		local maxX = parent.AbsoluteSize.X - absoluteFrameSize.X
-		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize.Y
+		local maxX = parent.AbsoluteSize.X - absoluteFrameSize.X - Theme.STROKE_THICKNESS
+		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize.Y - Theme.STROKE_THICKNESS
 
-		local newX = math.clamp(initialFramePosition.X.Offset + diffX, 0, maxX)
-		local newY = math.clamp(initialFramePosition.Y.Offset + diffY, 0, maxY)
+		local newX = math.clamp(initialFramePosition.X.Offset + diffX, Theme.STROKE_THICKNESS, maxX)
+		local newY = math.clamp(initialFramePosition.Y.Offset + diffY, Theme.STROKE_THICKNESS, maxY)
 
 		calculatedFramePosition(UDim2.fromOffset(newX, newY))
 	end)
@@ -154,7 +176,9 @@ return function(props: Props)
 				Size = UDim2.fromOffset(HEADER_HEIGHT, HEADER_HEIGHT),
 				BackgroundTransparency = 1,
 				Image = function()
-					if collapsed() == true then
+					if props.CanCollapse == false then
+						return ""
+					elseif collapsed() == true then
 						return Images.ArrowRight
 					else
 						return Images.ArrowDown
@@ -162,6 +186,10 @@ return function(props: Props)
 				end,
 
 				Activated = function()
+					if props.CanCollapse == false then
+						return
+					end
+
 					collapsed(not collapsed())
 				end,
 			},
@@ -188,10 +216,22 @@ return function(props: Props)
 			Visible = function()
 				return collapsed() == false
 			end,
+			ScrollBarThickness = 10,
 
 			create("UIFlexItem") {
 				FlexMode = Enum.UIFlexMode.Fill,
 			},
+
+			create("UIPadding") {
+				PaddingBottom = UDim.new(0, 10),
+				PaddingLeft = UDim.new(0, 10),
+				PaddingRight = UDim.new(0, 10),
+				PaddingTop = UDim.new(0, 10),
+			},
+
+			create("UIListLayout") {},
+
+			props.Widgets,
 		},
 	}
 end

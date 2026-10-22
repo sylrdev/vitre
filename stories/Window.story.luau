@@ -8,6 +8,9 @@ return {
 		Vitre.Internal.UserInputService = UILabs.Environment.UserInput
 		Vitre.Internal.Parent(props.target)
 
-		return Vitre.Window {}
+		return Vitre.Window {
+			-- CanDrag = false,
+			-- CanCollapse = false,
+		}
 	end,
 }
