@@ -139,6 +139,7 @@ return function(props: Props)
 		end,
 		Position = calculatedFramePosition,
 		BackgroundTransparency = 1,
+		Parent = Internal.Parent,
 
 		changed("Position", framePosition :: any),
 		changed("AbsoluteSize", absoluteFrameSize :: any),
