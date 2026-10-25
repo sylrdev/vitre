@@ -1,23 +1,50 @@
+local Players = game:GetService("Players")
+
 local Internal = require("@self/Internal")
+local Vide = require("./Vide")
+
+local mount = Vide.mount
+local create = Vide.create
+local action = Vide.action
 
 local Vitre = {}
+type Vitre = typeof(Vitre)
 
 --- Sets up Vitre.
-function Vitre.setup() end
+function Vitre.setup(self: Vitre)
+	local mountPoint = Players.LocalPlayer.PlayerGui
 
---- Overwrites the UserInputService used internally to use a custom one.
+	mount(function()
+		--selene:allow(mixed_table)
+		return create("ScreenGui") {
+			Name = "Vitre",
+
+			create("Frame") {
+				Name = "WindowContainer",
+				Size = UDim2.fromScale(1, 1),
+				BackgroundTransparency = 1,
+
+				action(function(instance)
+					self:setWindowContainer(instance :: Frame)
+				end),
+			},
+		}
+	end, mountPoint)
+end
+
+--- Sets the UserInputService used internally to use a custom one.
 --- Useful when using plugins like `UILabs`.
 ---
 --- @param service UserInputService --- custom service to use
-function Vitre.overwriteUserInputService(service: UserInputService)
+function Vitre:setUserInputService(service: UserInputService)
 	Internal.UserInputService = service
 end
 
---- Overwrites the container windows get rendered in.
+--- Sets the container windows get rendered in.
 --- Useful when using plugins like `UILabs`.
 ---
 --- @param guiObject GuiObject --- new container to render windows in
-function Vitre.overwriteWindowContainer(guiObject: GuiObject)
+function Vitre:setWindowContainer(guiObject: GuiObject)
 	Internal.WindowContainer(guiObject)
 end
 
