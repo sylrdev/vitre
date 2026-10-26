@@ -36,6 +36,10 @@ return {
 						},
 					},
 				},
+
+				Vitre.Widget.DividerText {
+					Text = "Hello World!",
+				},
 			},
 		}
 	end,
