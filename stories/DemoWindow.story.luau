@@ -9,6 +9,7 @@ return {
 		Vitre:setWindowContainer(props.target)
 
 		return Vitre.Window {
+			Title = "Demo Window",
 			Children = {
 				Vitre.Widget.Text {
 					Text = "Hello World!",
@@ -18,6 +19,18 @@ return {
 					Children = {
 						Vitre.Widget.Text {
 							Text = "Indented Hello World!",
+						},
+					},
+				},
+
+				Vitre.Widget.SameLine {
+					Children = {
+						Vitre.Widget.Text {
+							Text = "Same Line Hello World!",
+						},
+
+						Vitre.Widget.Text {
+							Text = "Same Line Hello World!",
 						},
 					},
 				},

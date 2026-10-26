@@ -2,6 +2,7 @@ local Players = game:GetService("Players")
 
 local Internal = require("@self/Internal")
 local Indent = require("@self/Widgets/Indent")
+local SameLine = require("@self/Widgets/SameLine")
 local Text = require("@self/Widgets/Text")
 local Window = require("@self/Window")
 local Vide = require("./Vide")
@@ -18,6 +19,7 @@ Vitre.Window = Window
 Vitre.Widget = {
 	Text = Text,
 	Indent = Indent,
+	SameLine = SameLine,
 }
 
 --- Sets up Vitre.
