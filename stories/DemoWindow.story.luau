@@ -13,6 +13,14 @@ return {
 				Vitre.Widget.Text {
 					Text = "Hello World!",
 				},
+
+				Vitre.Widget.Indent {
+					Children = {
+						Vitre.Widget.Text {
+							Text = "Indented Hello World!",
+						},
+					},
+				},
 			},
 		}
 	end,

@@ -10,7 +10,7 @@ local Theme = {
 
 	FONT = {
 		HEADER = Font.fromId(16658246179, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
-		CONTENT = Font.fromId(16658246179, Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+		CONTENT = Font.fromId(16658246179, Enum.FontWeight.Medium, Enum.FontStyle.Normal),
 	},
 
 	TEXT_SIZE = 15,
