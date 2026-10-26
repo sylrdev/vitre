@@ -10,6 +10,7 @@ return {
 
 		return Vitre.Window {
 			-- CanCollapse = false
+			-- CanDrag = false,
 		}
 	end,
 }

@@ -19,6 +19,7 @@ type Props = {
 	Size: Types.Prop<Vector2>?,
 	Title: string?,
 	CanCollapse: boolean?,
+	CanDrag: boolean?,
 }
 
 -- Returns the mouse's position on the screen.
@@ -69,6 +70,10 @@ return function(props: Props)
 			return
 		end
 
+		if props.CanDrag == false then
+			return
+		end
+
 		dragging = mouseHovering
 
 		if dragging == true then
@@ -83,6 +88,10 @@ return function(props: Props)
 			return
 		end
 
+		if props.CanDrag == false then
+			return
+		end
+
 		dragging = false
 
 		initialMousePosition = getMousePosition()
@@ -92,6 +101,10 @@ return function(props: Props)
 
 	local connection3 = Internal.UserInputService.InputChanged:Connect(function(inputObject: InputObject)
 		if inputObject.UserInputType ~= Enum.UserInputType.MouseMovement then
+			return
+		end
+
+		if props.CanDrag == false then
 			return
 		end
 
