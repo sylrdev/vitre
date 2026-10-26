@@ -10,7 +10,7 @@ type Props = {
 return function(props: Props)
 	--selene:allow(mixed_table)
 	return create("Frame") {
-		Name = "VitreIndentWidget",
+		Name = "VitreSameLineWidget",
 		AutomaticSize = Enum.AutomaticSize.Y,
 		Size = UDim2.fromScale(1, 0),
 		BackgroundTransparency = 1,

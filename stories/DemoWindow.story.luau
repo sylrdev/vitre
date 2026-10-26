@@ -23,6 +23,8 @@ return {
 					},
 				},
 
+				Vitre.Widget.Divider {},
+
 				Vitre.Widget.SameLine {
 					Children = {
 						Vitre.Widget.Text {

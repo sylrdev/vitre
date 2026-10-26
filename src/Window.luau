@@ -11,7 +11,7 @@ local cleanup = Vide.cleanup
 local effect = Vide.effect
 local changed = Vide.changed
 
-local DEFAULT_SIZE = Vector2.new(500, 550)
+local DEFAULT_SIZE = Vector2.new(400, 450)
 local DEFAULT_TITLE = "Window"
 local HEADER_HEIGHT = Theme.TEXT_SIZE + 5
 
