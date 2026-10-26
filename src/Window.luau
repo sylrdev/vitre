@@ -20,6 +20,7 @@ type Props = {
 	Title: string?,
 	CanCollapse: boolean?,
 	CanDrag: boolean?,
+	Children: { [any]: any }?,
 }
 
 -- Returns the mouse's position on the screen.
@@ -208,10 +209,25 @@ return function(props: Props)
 			Visible = function()
 				return collapsed() == false
 			end,
+			AutomaticCanvasSize = Enum.AutomaticSize.Y,
+			CanvasSize = UDim2.fromScale(0, 0),
 
 			create("UIFlexItem") {
 				FlexMode = Enum.UIFlexMode.Fill,
 			},
+
+			create("UIPadding") {
+				PaddingLeft = UDim.new(0, Theme.WINDOW_CHILDREN_PADDING),
+				PaddingRight = UDim.new(0, Theme.WINDOW_CHILDREN_PADDING * 2),
+				PaddingBottom = UDim.new(0, Theme.WINDOW_CHILDREN_PADDING),
+				PaddingTop = UDim.new(0, Theme.WINDOW_CHILDREN_PADDING),
+			},
+
+			create("UIListLayout") {
+				Padding = UDim.new(0, Theme.WINDOW_CHILDREN_PADDING),
+			},
+
+			props.Children,
 		},
 	}
 end

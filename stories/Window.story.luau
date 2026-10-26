@@ -9,7 +9,7 @@ return {
 		Vitre:setWindowContainer(props.target)
 
 		return Vitre.Window {
-			-- CanCollapse = false
+			-- CanCollapse = false,
 			-- CanDrag = false,
 		}
 	end,
