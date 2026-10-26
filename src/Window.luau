@@ -127,7 +127,12 @@ return function(props: Props)
 		Parent = Internal.WindowContainer,
 		Size = function()
 			local size = read(props.Size) :: Vector2 or DEFAULT_SIZE
-			return UDim2.fromOffset(size.X, size.Y)
+
+			if collapsed() == true then
+				return UDim2.fromOffset(size.X, HEADER_HEIGHT)
+			else
+				return UDim2.fromOffset(size.X, size.Y)
+			end
 		end,
 		Position = framePosition,
 		BackgroundTransparency = 1,
