@@ -13,7 +13,7 @@ local changed = Vide.changed
 
 local DEFAULT_SIZE = Vector2.new(500, 550)
 local DEFAULT_TITLE = "Window"
-local HEADER_HEIGHT = 20
+local HEADER_HEIGHT = Theme.TEXT_SIZE + 5
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
@@ -194,7 +194,7 @@ return function(props: Props)
 				FontFace = Theme.FONT.HEADER,
 				Text = props.Title or DEFAULT_TITLE,
 				TextColor3 = Theme.COLOR.TEXT,
-				TextSize = HEADER_HEIGHT - 5,
+				TextSize = Theme.TEXT_SIZE,
 			},
 
 			create("Frame") {

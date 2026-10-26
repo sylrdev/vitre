@@ -1,6 +1,7 @@
 local Players = game:GetService("Players")
 
 local Internal = require("@self/Internal")
+local Text = require("@self/Widgets/Text")
 local Window = require("@self/Window")
 local Vide = require("./Vide")
 
@@ -12,6 +13,10 @@ local Vitre = {}
 type Vitre = typeof(Vitre)
 
 Vitre.Window = Window
+
+Vitre.Widget = {
+	Text = Text,
+}
 
 --- Sets up Vitre.
 function Vitre.setup(self: Vitre)

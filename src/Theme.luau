@@ -13,6 +13,8 @@ local Theme = {
 		CONTENT = Font.fromId(16658246179, Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 	},
 
+	TEXT_SIZE = 15,
+
 	STROKE_THICKNESS = 2,
 
 	WINDOW_CHILDREN_PADDING = 10,
