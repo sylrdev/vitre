@@ -11,6 +11,7 @@ return {
 		Vitre:setWindowContainer(props.target)
 
 		local textboxText = source("")
+		local clickCount = source(0)
 
 		return Vitre.Window {
 			Title = "Demo Window",
@@ -55,6 +56,24 @@ return {
 						Vitre.Widget.Text {
 							Text = function()
 								return string.format("You entered: %s", textboxText())
+							end,
+						},
+					},
+				},
+
+				Vitre.Widget.SameLine {
+					Children = {
+						Vitre.Widget.Button {
+							Text = "Click me!",
+
+							Activated = function()
+								clickCount(clickCount() + 1)
+							end,
+						},
+
+						Vitre.Widget.Text {
+							Text = function()
+								return string.format("Clicked %i times", clickCount())
 							end,
 						},
 					},

@@ -7,7 +7,6 @@ local changed = Vide.changed
 
 local DEFAULT_PLACEHOLDER_TEXT = "..."
 local DEFAULT_WIDTH = 100
-local TEXT_BOX_PADDING = 3
 
 type Props = {
 	Text: Vide.Source<string>,
@@ -35,10 +34,10 @@ return function(props: Props)
 		changed("Text", props.Text :: any),
 
 		create("UIPadding") {
-			PaddingRight = UDim.new(0, TEXT_BOX_PADDING),
-			PaddingTop = UDim.new(0, TEXT_BOX_PADDING),
-			PaddingBottom = UDim.new(0, TEXT_BOX_PADDING),
-			PaddingLeft = UDim.new(0, TEXT_BOX_PADDING),
+			PaddingRight = UDim.new(0, Theme.WIDGET_PADDING),
+			PaddingTop = UDim.new(0, Theme.WIDGET_PADDING),
+			PaddingBottom = UDim.new(0, Theme.WIDGET_PADDING),
+			PaddingLeft = UDim.new(0, Theme.WIDGET_PADDING),
 		},
 	}
 end

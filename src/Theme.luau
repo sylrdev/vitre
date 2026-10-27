@@ -19,6 +19,8 @@ local Theme = {
 	STROKE_THICKNESS = 2,
 
 	WINDOW_CHILDREN_PADDING = 10,
+
+	WIDGET_PADDING = 3,
 }
 
 return Theme
