@@ -2,6 +2,7 @@ local Players = game:GetService("Players")
 
 local Internal = require("@self/Internal")
 local Button = require("@self/Widgets/Button")
+local CheckBox = require("@self/Widgets/CheckBox")
 local Divider = require("@self/Widgets/Divider")
 local DividerText = require("@self/Widgets/DividerText")
 local Indent = require("@self/Widgets/Indent")
@@ -30,6 +31,7 @@ Vitre.Widget = {
 	TextBox = TextBox,
 
 	Button = Button,
+	CheckBox = CheckBox,
 }
 
 --- Sets up Vitre.

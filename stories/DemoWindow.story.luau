@@ -78,6 +78,21 @@ return {
 						},
 					},
 				},
+
+				Vitre.Widget.CheckBox {
+					Text = "Option 1",
+					Checked = source(false),
+				},
+
+				Vitre.Widget.CheckBox {
+					Text = "Option 2",
+					Checked = source(false),
+				},
+
+				Vitre.Widget.CheckBox {
+					Text = "Option 3",
+					Checked = source(false),
+				},
 			},
 		}
 	end,
