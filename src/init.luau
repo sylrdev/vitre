@@ -6,6 +6,7 @@ local DividerText = require("@self/Widgets/DividerText")
 local Indent = require("@self/Widgets/Indent")
 local SameLine = require("@self/Widgets/SameLine")
 local Text = require("@self/Widgets/Text")
+local TextBox = require("@self/Widgets/TextBox")
 local Window = require("@self/Window")
 local Vide = require("./Vide")
 
@@ -25,6 +26,7 @@ Vitre.Widget = {
 
 	Text = Text,
 	DividerText = DividerText,
+	TextBox = TextBox,
 }
 
 --- Sets up Vitre.

@@ -18,6 +18,7 @@ return function(props: Props)
 		create("UIListLayout") {
 			FillDirection = Enum.FillDirection.Horizontal,
 			Padding = UDim.new(0, Theme.WINDOW_CHILDREN_PADDING),
+			VerticalAlignment = Enum.VerticalAlignment.Center,
 			Wraps = true,
 		},
 

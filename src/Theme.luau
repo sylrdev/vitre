@@ -6,6 +6,7 @@ local Theme = {
 		WINDOW_BACKGROUND = Tailwind.neutral[900],
 		STROKE = Tailwind.neutral[400],
 		TEXT = Tailwind.neutral[200],
+		WIDGET = Tailwind.blue[600],
 	},
 
 	FONT = {
