@@ -4,6 +4,7 @@
 local images = {
 	ArrowDown = "rbxassetid://97299878427615",
 	ArrowRight = "rbxassetid://96027557611663",
+	Check = "rbxassetid://107359865977639",
 }
 
 return images
