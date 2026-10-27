@@ -12,6 +12,7 @@ return {
 
 		local textboxText = source("")
 		local clickCount = source(0)
+		local radioButtonIndex = source(1)
 
 		return Vitre.Window {
 			Title = "Demo Window",
@@ -92,6 +93,30 @@ return {
 				Vitre.Widget.CheckBox {
 					Text = "Option 3",
 					Checked = source(false),
+				},
+
+				Vitre.Widget.RadioButton {
+					Text = "Option 1",
+					Index = 1,
+					CurrentIndex = radioButtonIndex,
+				},
+
+				Vitre.Widget.RadioButton {
+					Text = "Option 2",
+					Index = 2,
+					CurrentIndex = radioButtonIndex,
+				},
+
+				Vitre.Widget.RadioButton {
+					Text = "Option 3",
+					Index = 3,
+					CurrentIndex = radioButtonIndex,
+				},
+
+				Vitre.Widget.Text {
+					Text = function()
+						return string.format("Selected: %i", radioButtonIndex())
+					end,
 				},
 			},
 		}

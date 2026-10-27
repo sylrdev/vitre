@@ -6,6 +6,7 @@ local CheckBox = require("@self/Widgets/CheckBox")
 local Divider = require("@self/Widgets/Divider")
 local DividerText = require("@self/Widgets/DividerText")
 local Indent = require("@self/Widgets/Indent")
+local RadioButton = require("@self/Widgets/RadioButton")
 local SameLine = require("@self/Widgets/SameLine")
 local Text = require("@self/Widgets/Text")
 local TextBox = require("@self/Widgets/TextBox")
@@ -32,6 +33,7 @@ Vitre.Widget = {
 
 	Button = Button,
 	CheckBox = CheckBox,
+	RadioButton = RadioButton,
 }
 
 --- Sets up Vitre.
