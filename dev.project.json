@@ -18,6 +18,12 @@
       "Stories": {
         "$path": "stories/"
       }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "test/"
+      }
     }
   }
 }
