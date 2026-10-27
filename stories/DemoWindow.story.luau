@@ -80,35 +80,39 @@ return {
 					},
 				},
 
+				Vitre.Widget.Divider(),
+
 				Vitre.Widget.CheckBox {
-					Text = "Option 1",
+					Text = "Check 1",
 					Checked = source(false),
 				},
 
 				Vitre.Widget.CheckBox {
-					Text = "Option 2",
+					Text = "Check 2",
 					Checked = source(false),
 				},
 
 				Vitre.Widget.CheckBox {
-					Text = "Option 3",
+					Text = "Check 3",
 					Checked = source(false),
 				},
+
+				Vitre.Widget.Divider(),
 
 				Vitre.Widget.RadioButton {
-					Text = "Option 1",
+					Text = "Radio 1",
 					Index = 1,
 					CurrentIndex = radioButtonIndex,
 				},
 
 				Vitre.Widget.RadioButton {
-					Text = "Option 2",
+					Text = "Radio 2",
 					Index = 2,
 					CurrentIndex = radioButtonIndex,
 				},
 
 				Vitre.Widget.RadioButton {
-					Text = "Option 3",
+					Text = "Radio 3",
 					Index = 3,
 					CurrentIndex = radioButtonIndex,
 				},
