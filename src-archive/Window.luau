@@ -75,29 +75,29 @@ return function(props: Props)
 			return
 		end
 
-		dragging = mouseHovering
-
-		if dragging == true then
-			initialMousePosition = getMousePosition()
-			mousePosition(initialMousePosition)
-			initialFramePosition = framePosition()
-		end
+		-- dragging = mouseHovering
+		--
+		-- if dragging == true then
+		-- 	initialMousePosition = getMousePosition()
+		-- 	mousePosition(initialMousePosition)
+		-- 	initialFramePosition = framePosition()
+		-- end
 	end)
 
 	local connection2 = Internal.UserInputService.InputEnded:Connect(function(inputObject: InputObject)
-		if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
-			return
-		end
-
-		if props.CanDrag == false then
-			return
-		end
-
-		dragging = false
-
-		initialMousePosition = getMousePosition()
-		mousePosition(initialMousePosition)
-		initialFramePosition = framePosition()
+		-- if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
+		-- 	return
+		-- end
+		--
+		-- if props.CanDrag == false then
+		-- 	return
+		-- end
+		--
+		-- dragging = false
+		--
+		-- initialMousePosition = getMousePosition()
+		-- mousePosition(initialMousePosition)
+		-- initialFramePosition = framePosition()
 	end)
 
 	local connection3 = Internal.UserInputService.InputChanged:Connect(function(inputObject: InputObject)
@@ -157,11 +157,46 @@ return function(props: Props)
 			BackgroundColor3 = Theme.COLOR.HEADER,
 
 			MouseEnter = function()
+				print("hovering")
 				mouseHovering = true
 			end,
 
 			MouseLeave = function()
 				mouseHovering = false
+			end,
+
+			InputBegan = function(inputObject: InputObject)
+				if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
+					return
+				end
+
+				if props.CanDrag == false then
+					return
+				end
+
+				dragging = mouseHovering
+
+				if dragging == true then
+					initialMousePosition = getMousePosition()
+					mousePosition(initialMousePosition)
+					initialFramePosition = framePosition()
+				end
+			end,
+
+			InputEnded = function(inputObject: InputObject)
+				if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
+					return
+				end
+
+				if props.CanDrag == false then
+					return
+				end
+
+				dragging = false
+
+				initialMousePosition = getMousePosition()
+				mousePosition(initialMousePosition)
+				initialFramePosition = framePosition()
 			end,
 
 			create("UIListLayout") {
