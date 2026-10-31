@@ -1,11 +1,13 @@
-local Tailwind = require("../Tailwind")
-local Vide = require("../Vide")
-local Types = require("./Types")
+const Tailwind = require("../Tailwind")
+const Vide = require("../Vide")
+const DraggingHandler = require("./DraggingHandler")
+const Types = require("./Types")
 
-local create = Vide.create
-local read = Vide.read
+const create = Vide.create
+const read = Vide.read
+const action = Vide.action
 
-local DEFAULT_SIZE = Vector2.new(400, 450)
+const DEFAULT_SIZE = Vector2.new(400, 450)
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
@@ -19,6 +21,10 @@ return function(props: Props)
 			local size = read(props.Size) :: Vector2 or DEFAULT_SIZE
 			return UDim2.fromOffset(size.X, size.Y)
 		end,
+
+		action(function(instance)
+			DraggingHandler:registerWindow(instance :: Types.Window)
+		end),
 
 		create("UIListLayout") {
 			HorizontalFlex = Enum.UIFlexAlignment.Fill,
