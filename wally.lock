@@ -3,6 +3,11 @@
 registry = "test"
 
 [[package]]
+name = "data-oriented-house/lemonsignal"
+version = "2.0.0"
+dependencies = []
+
+[[package]]
 name = "pepeeltoro41/ui-labs"
 version = "2.4.2"
 dependencies = []
@@ -15,7 +20,7 @@ dependencies = []
 [[package]]
 name = "sylrdev/vitre"
 version = "0.1.0"
-dependencies = [["Tailwind", "virtualbutfake/tailwind@0.1.1"], ["Vide", "sylrdev/vide@0.4.1"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"]]
+dependencies = [["LemonSignal", "data-oriented-house/lemonsignal@2.0.0"], ["Tailwind", "virtualbutfake/tailwind@0.1.1"], ["Vide", "sylrdev/vide@0.4.1"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"]]
 
 [[package]]
 name = "virtualbutfake/tailwind"
