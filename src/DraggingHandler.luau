@@ -17,16 +17,32 @@ function DraggingHandler.init(self: DraggingHandler)
 		return
 	end
 
+	local target: Types.Window?
+	local draggedTarget: Types.Window?
+
 	local connection1 = Internal.UserInput.InputBegan:Connect(function(inputObject: InputObject)
 		if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
 			return
 		end
+
+		if target == nil then
+			return
+		end
+
+		Internal.StartDrag:Fire(target)
+		draggedTarget = target
 	end)
 
 	local connection2 = Internal.UserInput.InputEnded:Connect(function(inputObject: InputObject)
 		if inputObject.UserInputType ~= Enum.UserInputType.MouseButton1 then
 			return
 		end
+
+		if draggedTarget == nil then
+			return
+		end
+
+		Internal.StopDrag:Fire(draggedTarget)
 	end)
 
 	local connection3 = Internal.UserInput.InputChanged:Connect(function(inputObject: InputObject)
@@ -35,11 +51,8 @@ function DraggingHandler.init(self: DraggingHandler)
 		end
 
 		const pointerPosition = Internal.UserInput:GetMouseLocation()
-		const target = self:_findPointerTarget(pointerPosition)
-
-		if target == nil then
-			return
-		end
+		Internal.PointerPosition(pointerPosition)
+		target = self:_findPointerTarget(pointerPosition)
 	end)
 
 	table.insert(connections, connection1)

@@ -1,16 +1,20 @@
 const Tailwind = require("../Tailwind")
 const Vide = require("../Vide")
 const DraggingHandler = require("./DraggingHandler")
+const Internal = require("./Internal")
 const Types = require("./Types")
 
 const create = Vide.create
 const read = Vide.read
 const action = Vide.action
 const cleanup = Vide.cleanup
+local source = Vide.source
+const effect = Vide.effect
+const changed = Vide.changed
 
 const defaultSize = Vector2.new(400, 450)
 
-local zIndex = 1
+local zIndex = 0
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
@@ -19,10 +23,50 @@ type Props = {
 return function(props: Props)
 	local instanceRef: Types.Window
 
+	local dragging = false
+	local initialPointerPoisiton = Internal.PointerPosition()
+	local initialFramePosition = UDim2.new()
+	local framePosition = source(initialFramePosition)
+
+	local connection1 = Internal.StartDrag:Connect(function(window: Types.Window)
+		if window ~= instanceRef then
+			return
+		end
+
+		dragging = true
+		initialPointerPoisiton = Internal.PointerPosition()
+		initialFramePosition = framePosition()
+	end)
+
+	local connection2 = Internal.StopDrag:Connect(function(window: Types.Window)
+		if window ~= instanceRef then
+			return
+		end
+
+		dragging = false
+		initialPointerPoisiton = Internal.PointerPosition()
+		initialFramePosition = framePosition()
+	end)
+
 	zIndex += 1
+
+	effect(function()
+		const pointerPosition = Internal.PointerPosition()
+
+		if dragging == false then
+			return
+		end
+
+		const diffX = pointerPosition.X - initialPointerPoisiton.X
+		const diffY = pointerPosition.Y - initialPointerPoisiton.Y
+
+		framePosition(UDim2.fromOffset(initialFramePosition.X.Offset + diffX, initialFramePosition.Y.Offset + diffY))
+	end)
 
 	cleanup(function()
 		DraggingHandler:unregisterWindow(instanceRef)
+		connection1:Disconnect()
+		connection2:Disconnect()
 	end)
 
 	--selene:allow(mixed_table)
@@ -32,6 +76,7 @@ return function(props: Props)
 			local size = read(props.Size) :: Vector2 or defaultSize
 			return UDim2.fromOffset(size.X, size.Y)
 		end,
+		Position = framePosition,
 		ZIndex = zIndex,
 
 		action(function(instance)
@@ -39,6 +84,8 @@ return function(props: Props)
 
 			DraggingHandler:registerWindow(instance :: Types.Window)
 		end),
+
+		changed("Position", framePosition :: any),
 
 		create("UIListLayout") {
 			HorizontalFlex = Enum.UIFlexAlignment.Fill,
