@@ -50,18 +50,6 @@ function DraggingHandler.init(self: DraggingHandler)
 end
 
 --[[
-	Registers a window to be handled and apply the dragging behavior to.
-
-	Note: Initializes the handler if not already done.
-
-	@param window: Window - Window to handle.
-]]
-function DraggingHandler.registerWindow(self: DraggingHandler, window: Types.Window)
-	self:init()
-	table.insert(windows, window)
-end
-
---[[
 	Finds the window targeted by the pointer among the registered windows.
 
 	@param pointerPosition: Vector2 - Pointer's position on the screen.
@@ -88,6 +76,31 @@ function DraggingHandler:_findPointerTarget(pointerPosition: Vector2): Types.Win
 	end
 
 	return target
+end
+
+--[[
+	Registers a window to be handled and applies the dragging behavior to.
+
+	Note: Initializes the handler if not already done.
+
+	@param window: Window - Window to register.
+]]
+function DraggingHandler.registerWindow(self: DraggingHandler, window: Types.Window)
+	self:init()
+	table.insert(windows, window)
+end
+
+--[[
+	Unregisters a window and removes the dragging behavior.
+
+	@param window: Window - Window to unregister.
+]]
+function DraggingHandler:unregisterWindow(window: Types.Window)
+	local index = table.find(windows, window)
+
+	if index ~= nil then
+		table.remove(windows, index)
+	end
 end
 
 --[[
