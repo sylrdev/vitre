@@ -27,6 +27,7 @@ return function(props: Props)
 	local initialPointerPoisiton = Internal.PointerPosition()
 	local initialFramePosition = UDim2.new()
 	local framePosition = source(initialFramePosition)
+	local absoluteFrameSize = source(Vector2.zero)
 
 	local connection1 = Internal.StartDrag:Connect(function(window: Types.Window)
 		if window ~= instanceRef then
@@ -60,7 +61,17 @@ return function(props: Props)
 		const diffX = pointerPosition.X - initialPointerPoisiton.X
 		const diffY = pointerPosition.Y - initialPointerPoisiton.Y
 
-		framePosition(UDim2.fromOffset(initialFramePosition.X.Offset + diffX, initialFramePosition.Y.Offset + diffY))
+		const parent = instanceRef.Parent :: GuiObject
+		local maxX = parent.AbsoluteSize.X - absoluteFrameSize().X
+		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize().Y
+
+		maxX = math.max(0, maxX)
+		maxY = math.max(0, maxY)
+
+		const newX = math.clamp(initialFramePosition.X.Offset + diffX, 0, maxX)
+		const newY = math.clamp(initialFramePosition.Y.Offset + diffY, 0, maxY)
+
+		framePosition(UDim2.fromOffset(newX, newY))
 	end)
 
 	cleanup(function()
@@ -86,6 +97,7 @@ return function(props: Props)
 		end),
 
 		changed("Position", framePosition :: any),
+		changed("AbsoluteSize", absoluteFrameSize :: any),
 
 		create("UIListLayout") {
 			HorizontalFlex = Enum.UIFlexAlignment.Fill,
