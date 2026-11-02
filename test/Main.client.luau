@@ -12,10 +12,18 @@ Vitre.Window {}
 
 -- Vitre:overrideTheme {
 -- 	Color = {
--- 		Header = Tailwind.rose[500],
--- 		WidgetContainer = Tailwind.blue[800],
+-- 		Header = Tailwind.emerald[500],
+-- 		WidgetContainer = Tailwind.neutral[600],
 -- 		Stroke = Tailwind.neutral[400],
+-- 		Text = Tailwind.neutral[200],
 -- 	},
 --
 -- 	StrokeThickness = 2,
+--
+-- 	TextSize = 20,
+--
+-- 	Font = {
+-- 		Header = Font.fromId(16658246179, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
+-- 		Content = Font.fromId(16658246179, Enum.FontWeight.Medium, Enum.FontStyle.Normal),
+-- 	},
 -- }

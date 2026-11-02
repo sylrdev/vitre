@@ -1,6 +1,6 @@
-const Tailwind = require("../Tailwind")
 const Vide = require("../Vide")
 const DraggingHandler = require("./DraggingHandler")
+const Images = require("./Images")
 const Internal = require("./Internal")
 const Theme = require("./Theme")
 const Types = require("./Types")
@@ -15,12 +15,14 @@ const changed = Vide.changed
 const show = Vide.show
 
 const DEFAULT_SIZE = Vector2.new(400, 450)
+const DEFAULT_TITLE = "Window"
 const DEFAULT_VISIBLE = true
 
 local zIndex = 0
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
+	Title: Types.Prop<string>?,
 	Visible: Vide.Source<boolean>?,
 }
 
@@ -32,6 +34,12 @@ return function(props: Props)
 	local initialFramePosition = UDim2.fromOffset(Theme().StrokeThickness, Theme().StrokeThickness)
 	local framePosition = source(initialFramePosition)
 	local absoluteFrameSize = source(Vector2.zero)
+
+	local collapsed = source(false)
+
+	local headerHeight = function()
+		return Theme().TextSize + 5
+	end
 
 	local connection1 = Internal.StartDrag:Connect(function(window: Types.Window)
 		if window ~= instanceRef then
@@ -98,11 +106,11 @@ return function(props: Props)
 
 			action(function(instance)
 				instanceRef = instance :: Types.Window
-
 				DraggingHandler:registerWindow(instance :: Types.Window)
 			end),
 
 			changed("Position", framePosition :: any),
+
 			changed("AbsoluteSize", absoluteFrameSize :: any),
 
 			create("UIStroke") {
@@ -120,10 +128,57 @@ return function(props: Props)
 
 			create("Frame") {
 				Name = "Header",
-				Size = UDim2.fromOffset(0, 20),
+				Size = function()
+					return UDim2.fromOffset(0, headerHeight())
+				end,
 				BackgroundColor3 = function()
 					return Theme().Color.Header
 				end,
+
+				create("UIListLayout") {
+					FillDirection = Enum.FillDirection.Horizontal,
+					HorizontalFlex = Enum.UIFlexAlignment.SpaceBetween,
+					VerticalAlignment = Enum.VerticalAlignment.Center,
+				},
+
+				create("ImageButton") {
+					Name = "CollapseButton",
+					Size = function()
+						return UDim2.fromOffset(headerHeight(), headerHeight())
+					end,
+					BackgroundTransparency = 1,
+					Image = function()
+						if collapsed() == true then
+							return Images.ArrowRight
+						else
+							return Images.ArrowDown
+						end
+					end,
+				},
+
+				create("TextLabel") {
+					Name = "TitleLabel",
+					AutomaticSize = Enum.AutomaticSize.XY,
+					BackgroundTransparency = 1,
+					FontFace = function()
+						return Theme().Font.Header
+					end,
+					Text = props.Title or DEFAULT_TITLE,
+					TextColor3 = function()
+						return Theme().Color.Text
+					end,
+					TextSize = function()
+						return Theme().TextSize
+					end,
+				},
+
+				create("Frame") {
+					Name = "_",
+					Size = function()
+						return UDim2.fromOffset(headerHeight(), headerHeight())
+					end,
+					BackgroundTransparency = 1,
+				},
 			},
 
 			create("ScrollingFrame") {

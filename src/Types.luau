@@ -9,9 +9,17 @@ export type Theme = {
 		Header: Color3,
 		WidgetContainer: Color3,
 		Stroke: Color3,
+		Text: Color3,
 	},
 
 	StrokeThickness: number,
+
+	TextSize: number,
+
+	Font: {
+		Header: Font,
+		Content: Font,
+	},
 }
 
 return nil
