@@ -18,11 +18,6 @@ local windows = source {}
 
 const Vitre = {}
 
-type WindowProps = {
-	Size: Types.Prop<Vector2>?,
-	Visible: Vide.Source<boolean>?,
-}
-
 --[[
 	Sets up the app to render windows in while emulating.
 
@@ -45,7 +40,7 @@ function Vitre:setup()
 				Size = UDim2.fromScale(1, 1),
 				BackgroundTransparency = 1,
 
-				indexes(windows, function(prop: () -> WindowProps)
+				indexes(windows, function(prop: () -> Types.WindowProps)
 					return Window(prop())
 				end),
 			},
@@ -59,7 +54,7 @@ end
 	@param props: WindowProps - Properties to apply to the window component
 	@return any? - Created window when in a story environment, nil otherwise
 ]]
-function Vitre.Window(props: WindowProps): any?
+function Vitre.Window(props: Types.WindowProps): any?
 	if IS_STORY == true then
 		return Window(props)
 	else
@@ -78,7 +73,7 @@ end
 
 	@param props: WindowProps - Properties to apply to the window component
 ]]
-function Vitre.WindowRaw(props: WindowProps)
+function Vitre.WindowRaw(props: Types.WindowProps)
 	return Window(props)
 end
 

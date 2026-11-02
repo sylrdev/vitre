@@ -4,6 +4,12 @@ export type Prop<T> = T | Vide.Source<T>
 
 export type Window = Frame & { Header: Frame }
 
+export type WindowProps = {
+	Size: Prop<Vector2>?,
+	Title: Prop<string>?,
+	Visible: Vide.Source<boolean>?,
+}
+
 export type Theme = {
 	Color: {
 		Header: Color3,

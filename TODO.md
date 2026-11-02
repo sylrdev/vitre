@@ -1,0 +1,5 @@
+- collapsing window + prop
+- can drag prop
+- corner radius
+- header toggle
+- widgets
