@@ -8,13 +8,13 @@ const create = Vide.create
 const read = Vide.read
 const action = Vide.action
 const cleanup = Vide.cleanup
-local source = Vide.source
+const source = Vide.source
 const effect = Vide.effect
 const changed = Vide.changed
 const show = Vide.show
 
-const defaultSize = Vector2.new(400, 450)
-const defaultVisible = true
+const DEFAULT_SIZE = Vector2.new(400, 450)
+const DEFAULT_VISIBLE = true
 
 local zIndex = 0
 
@@ -84,11 +84,11 @@ return function(props: Props)
 	end)
 
 	--selene:allow(mixed_table)
-	return show(props.Visible or source(defaultVisible), function()
+	return show(props.Visible or source(DEFAULT_VISIBLE), function()
 		return create("Frame") {
 			Name = "Window",
 			Size = function()
-				local size = read(props.Size) :: Vector2 or defaultSize
+				local size = read(props.Size) :: Vector2 or DEFAULT_SIZE
 				return UDim2.fromOffset(size.X, size.Y)
 			end,
 			Position = framePosition,

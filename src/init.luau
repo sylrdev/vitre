@@ -11,7 +11,7 @@ const create = Vide.create
 const source = Vide.source
 const indexes = Vide.indexes
 
-const isStory = RunService:IsStudio() == true and RunService:IsRunning() == false
+const IS_STORY = RunService:IsStudio() == true and RunService:IsRunning() == false
 
 local windows = source {}
 
@@ -28,11 +28,11 @@ type WindowProps = {
 	Note: Does not work in a story environment.
 ]]
 function Vitre:setup()
-	if isStory == true then
+	if IS_STORY == true then
 		error("Cannot setup Vitre in a story environment.")
 	end
 
-	local mountTarget = Players.LocalPlayer.PlayerGui
+	const mountTarget = Players.LocalPlayer.PlayerGui
 
 	mount(function()
 		--selene:allow(mixed_table)
@@ -59,7 +59,7 @@ end
 	@return any? - Created window when in a story environment, nil otherwise
 ]]
 function Vitre.Window(props: WindowProps): any?
-	if isStory == true then
+	if IS_STORY == true then
 		return Window(props)
 	else
 		local clone = table.clone(windows())
