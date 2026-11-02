@@ -29,7 +29,7 @@ return function(props: Props)
 
 	local dragging = false
 	local initialPointerPoisiton = Internal.PointerPosition()
-	local initialFramePosition = UDim2.new()
+	local initialFramePosition = UDim2.fromOffset(Theme().StrokeThickness, Theme().StrokeThickness)
 	local framePosition = source(initialFramePosition)
 	local absoluteFrameSize = source(Vector2.zero)
 
@@ -66,14 +66,15 @@ return function(props: Props)
 		const diffY = pointerPosition.Y - initialPointerPoisiton.Y
 
 		const parent = instanceRef.Parent :: GuiObject
-		local maxX = parent.AbsoluteSize.X - absoluteFrameSize().X
-		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize().Y
+		local strokeThickness = Theme().StrokeThickness
+		local maxX = parent.AbsoluteSize.X - absoluteFrameSize().X - strokeThickness
+		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize().Y - strokeThickness
 
 		maxX = math.max(0, maxX)
 		maxY = math.max(0, maxY)
 
-		const newX = math.clamp(initialFramePosition.X.Offset + diffX, 0, maxX)
-		const newY = math.clamp(initialFramePosition.Y.Offset + diffY, 0, maxY)
+		const newX = math.clamp(initialFramePosition.X.Offset + diffX, strokeThickness, maxX)
+		const newY = math.clamp(initialFramePosition.Y.Offset + diffY, strokeThickness, maxY)
 
 		framePosition(UDim2.fromOffset(newX, newY))
 	end)
