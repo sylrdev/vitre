@@ -2,6 +2,7 @@ const Tailwind = require("../Tailwind")
 const Vide = require("../Vide")
 const DraggingHandler = require("./DraggingHandler")
 const Internal = require("./Internal")
+const Theme = require("./Theme")
 const Types = require("./Types")
 
 const create = Vide.create
@@ -103,6 +104,15 @@ return function(props: Props)
 			changed("Position", framePosition :: any),
 			changed("AbsoluteSize", absoluteFrameSize :: any),
 
+			create("UIStroke") {
+				Color = function()
+					return Theme().Color.Stroke
+				end,
+				Thickness = function()
+					return Theme().StrokeThickness
+				end,
+			},
+
 			create("UIListLayout") {
 				HorizontalFlex = Enum.UIFlexAlignment.Fill,
 			},
@@ -110,11 +120,16 @@ return function(props: Props)
 			create("Frame") {
 				Name = "Header",
 				Size = UDim2.fromOffset(0, 20),
-				BackgroundColor3 = Tailwind.amber[500],
+				BackgroundColor3 = function()
+					return Theme().Color.Header
+				end,
 			},
 
 			create("ScrollingFrame") {
 				Name = "WidgetContainer",
+				BackgroundColor3 = function()
+					return Theme().Color.WidgetContainer
+				end,
 
 				create("UIFlexItem") {
 					FlexMode = Enum.UIFlexMode.Fill,

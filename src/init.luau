@@ -2,6 +2,7 @@ const Players = game:GetService("Players")
 const RunService = game:GetService("RunService")
 
 const Internal = require("@self/Internal")
+const Theme = require("@self/Theme")
 const Types = require("@self/Types")
 const Window = require("@self/Window")
 const Vide = require("./Vide")
@@ -90,6 +91,15 @@ end
 ]]
 function Vitre:overrideUserInput(uis: UserInputService)
 	Internal.UserInput = uis
+end
+
+--[[
+	Overrides the default theme with a custom one.
+
+	@param newTheme: Theme - New theme to use.
+]]
+function Vitre:overrideTheme(newTheme: Types.Theme)
+	Theme(newTheme)
 end
 
 return Vitre
