@@ -1,3 +1,5 @@
+const GuiService = game:GetService("GuiService")
+
 const Internal = require("./Internal")
 const Types = require("./Types")
 
@@ -73,10 +75,11 @@ function DraggingHandler:_findPointerTarget(pointerPosition: Vector2): Types.Win
 
 	for _, window in ipairs(windows) do
 		const header = window.Header
+		const inset = GuiService:GetGuiInset()
 		const minX = header.AbsolutePosition.X
 		const maxX = header.AbsolutePosition.X + header.AbsoluteSize.X
-		const minY = header.AbsolutePosition.Y
-		const maxY = header.AbsolutePosition.Y + header.AbsoluteSize.Y
+		const minY = header.AbsolutePosition.Y + inset.Y
+		const maxY = header.AbsolutePosition.Y + inset.Y + header.AbsoluteSize.Y
 
 		if
 			(pointerPosition.X >= minX)
