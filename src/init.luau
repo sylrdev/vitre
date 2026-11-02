@@ -11,15 +11,27 @@ const create = Vide.create
 const source = Vide.source
 const indexes = Vide.indexes
 
+const isStory = RunService:IsStudio() == true and RunService:IsRunning() == false
+
 local windows = source {}
 
 const Vitre = {}
 
 type WindowProps = {
 	Size: Types.Prop<Vector2>?,
+	Visible: Vide.Source<boolean>?,
 }
 
-function Vitre.setup()
+--[[
+	Sets up the app to render windows in while emulating.
+
+	Note: Does not work in a story environment.
+]]
+function Vitre:setup()
+	if isStory == true then
+		error("Cannot setup Vitre in a story environment.")
+	end
+
 	local mountTarget = Players.LocalPlayer.PlayerGui
 
 	mount(function()
@@ -40,16 +52,33 @@ function Vitre.setup()
 	end, mountTarget)
 end
 
-function Vitre.Window(props: WindowProps): Frame?
-	if RunService:IsStudio() == true and RunService:IsRunning() == false then
+--[[
+	Creates a window component.
+
+	@param props: WindowProps - Properties to apply to the window component
+	@return any? - Created window when in a story environment, nil otherwise
+]]
+function Vitre.Window(props: WindowProps): any?
+	if isStory == true then
 		return Window(props)
 	else
 		local clone = table.clone(windows())
 		table.insert(clone, props)
 		windows(clone)
 
-		return nil
+		return
 	end
+end
+
+--[[
+	Creates a window raw component.
+
+	Note: Useful if you want to render the window in something other than the default App. (ex: plugin widget)
+
+	@param props: WindowProps - Properties to apply to the window component
+]]
+function Vitre.WindowRaw(props: WindowProps)
+	return Window(props)
 end
 
 --[[

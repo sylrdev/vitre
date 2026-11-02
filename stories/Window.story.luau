@@ -4,9 +4,14 @@ local Vitre = require("../Packages/Vitre")
 
 return {
 	vide = Vide,
-	story = function()
+	controls = {
+		Visible = true,
+	},
+	story = function(props: UILabs.VideProps)
 		Vitre:overrideUserInput(UILabs.Environment.UserInput)
 
-		return Vitre.Window {}
+		return Vitre.Window {
+			Visible = props.controls["Visible"],
+		}
 	end,
 }

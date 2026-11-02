@@ -11,13 +11,16 @@ const cleanup = Vide.cleanup
 local source = Vide.source
 const effect = Vide.effect
 const changed = Vide.changed
+const show = Vide.show
 
 const defaultSize = Vector2.new(400, 450)
+const defaultVisible = true
 
 local zIndex = 0
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
+	Visible: Vide.Source<boolean>?,
 }
 
 return function(props: Props)
@@ -81,40 +84,42 @@ return function(props: Props)
 	end)
 
 	--selene:allow(mixed_table)
-	return create("Frame") {
-		Name = "Window",
-		Size = function()
-			local size = read(props.Size) :: Vector2 or defaultSize
-			return UDim2.fromOffset(size.X, size.Y)
-		end,
-		Position = framePosition,
-		ZIndex = zIndex,
+	return show(props.Visible or source(defaultVisible), function()
+		return create("Frame") {
+			Name = "Window",
+			Size = function()
+				local size = read(props.Size) :: Vector2 or defaultSize
+				return UDim2.fromOffset(size.X, size.Y)
+			end,
+			Position = framePosition,
+			ZIndex = zIndex,
 
-		action(function(instance)
-			instanceRef = instance :: Types.Window
+			action(function(instance)
+				instanceRef = instance :: Types.Window
 
-			DraggingHandler:registerWindow(instance :: Types.Window)
-		end),
+				DraggingHandler:registerWindow(instance :: Types.Window)
+			end),
 
-		changed("Position", framePosition :: any),
-		changed("AbsoluteSize", absoluteFrameSize :: any),
+			changed("Position", framePosition :: any),
+			changed("AbsoluteSize", absoluteFrameSize :: any),
 
-		create("UIListLayout") {
-			HorizontalFlex = Enum.UIFlexAlignment.Fill,
-		},
-
-		create("Frame") {
-			Name = "Header",
-			Size = UDim2.fromOffset(0, 20),
-			BackgroundColor3 = Tailwind.amber[500],
-		},
-
-		create("ScrollingFrame") {
-			Name = "WidgetContainer",
-
-			create("UIFlexItem") {
-				FlexMode = Enum.UIFlexMode.Fill,
+			create("UIListLayout") {
+				HorizontalFlex = Enum.UIFlexAlignment.Fill,
 			},
-		},
-	}
+
+			create("Frame") {
+				Name = "Header",
+				Size = UDim2.fromOffset(0, 20),
+				BackgroundColor3 = Tailwind.amber[500],
+			},
+
+			create("ScrollingFrame") {
+				Name = "WidgetContainer",
+
+				create("UIFlexItem") {
+					FlexMode = Enum.UIFlexMode.Fill,
+				},
+			},
+		}
+	end)
 end
