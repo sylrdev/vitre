@@ -23,14 +23,18 @@ export type Theme = {
 
 	CornerRadius: number,
 
-	StrokeThickness: number,
-
-	TextSize: number,
-
 	Font: {
 		Header: Font,
 		Content: Font,
 	},
+
+	Padding: {
+		WidgetContainer: number,
+	},
+
+	StrokeThickness: number,
+
+	TextSize: number,
 }
 
 return nil

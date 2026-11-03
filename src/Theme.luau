@@ -14,14 +14,18 @@ local Theme: Types.Theme = {
 
 	CornerRadius = 2,
 
-	StrokeThickness = 2,
-
-	TextSize = 15,
-
 	Font = {
 		Header = Font.fromId(16658246179, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
 		Content = Font.fromId(16658246179, Enum.FontWeight.Medium, Enum.FontStyle.Normal),
 	},
+
+	Padding = {
+		WidgetContainer = 5,
+	},
+
+	StrokeThickness = 2,
+
+	TextSize = 15,
 }
 
 return source(Theme)

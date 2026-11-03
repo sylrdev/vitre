@@ -233,6 +233,8 @@ return function(props: Props)
 				Visible = function()
 					return collapsed() == false
 				end,
+				AutomaticCanvasSize = Enum.AutomaticSize.Y,
+				CanvasSize = UDim2.new(),
 				ScrollBarThickness = 10,
 
 				create("UICorner") {
@@ -244,6 +246,29 @@ return function(props: Props)
 				create("UIFlexItem") {
 					FlexMode = Enum.UIFlexMode.Fill,
 				},
+
+				create("UIPadding") {
+					PaddingTop = function()
+						return UDim.new(0, Theme().Padding.WidgetContainer)
+					end,
+					PaddingBottom = function()
+						return UDim.new(0, Theme().Padding.WidgetContainer)
+					end,
+					PaddingLeft = function()
+						return UDim.new(0, Theme().Padding.WidgetContainer)
+					end,
+					PaddingRight = function()
+						return UDim.new(0, Theme().Padding.WidgetContainer)
+					end,
+				},
+
+				create("UIListLayout") {
+					Padding = function()
+						return UDim.new(0, Theme().Padding.WidgetContainer)
+					end,
+				},
+
+				props.Children,
 			},
 		}
 	end)
