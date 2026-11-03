@@ -11,6 +11,7 @@ return {
 		Vitre:overrideUserInput(UILabs.Environment.UserInput)
 
 		local textBoxText = source("")
+		local radioButtonIndex = source(1)
 
 		return Vitre.Window {
 			Title = "Demo Window",
@@ -93,6 +94,32 @@ return {
 				Vitre.Widget.Checkbox {
 					Checked = source(false),
 					Text = "Option 3",
+				},
+
+				Vitre.Widget.Divider {},
+
+				Vitre.Widget.RadioButton {
+					Index = 1,
+					CurrentIndex = radioButtonIndex,
+					Text = "Option 1",
+				},
+
+				Vitre.Widget.RadioButton {
+					Index = 2,
+					CurrentIndex = radioButtonIndex,
+					Text = "Option 2",
+				},
+
+				Vitre.Widget.RadioButton {
+					Index = 3,
+					CurrentIndex = radioButtonIndex,
+					Text = "Option 3",
+				},
+
+				Vitre.Widget.Text {
+					Text = function()
+						return string.format("Selected option: %i", radioButtonIndex())
+					end,
 				},
 			},
 		}

@@ -9,6 +9,7 @@ const Checkbox = require("@self/Widgets/Checkbox")
 const Divider = require("@self/Widgets/Divider")
 const DividerText = require("@self/Widgets/DividerText")
 const Indent = require("@self/Widgets/Indent")
+const RadioButton = require("@self/Widgets/RadioButton")
 const SameLine = require("@self/Widgets/SameLine")
 const Text = require("@self/Widgets/Text")
 const TextBox = require("@self/Widgets/TextBox")
@@ -36,6 +37,7 @@ Vitre.Widget = {
 
 	Button = Button,
 	Checkbox = Checkbox,
+	RadioButton = RadioButton,
 }
 
 --[[
