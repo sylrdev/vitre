@@ -4,6 +4,7 @@ const RunService = game:GetService("RunService")
 const Internal = require("@self/Internal")
 const Theme = require("@self/Theme")
 const Types = require("@self/Types")
+const Text = require("@self/Widgets/Text")
 const Window = require("@self/Window")
 const Vide = require("./Vide")
 
@@ -17,6 +18,9 @@ const IS_STORY = RunService:IsStudio() == true and RunService:IsRunning() == fal
 local windows = source {}
 
 const Vitre = {}
+Vitre.Widget = {
+	Text = Text,
+}
 
 --[[
 	Sets up the app to render windows in while emulating.
