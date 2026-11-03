@@ -95,7 +95,12 @@ return function(props: Props)
 			Name = "Window",
 			Size = function()
 				local size = read(props.Size) :: Vector2 or DEFAULT_SIZE
-				return UDim2.fromOffset(size.X, size.Y)
+
+				if collapsed() == true then
+					return UDim2.fromOffset(size.X, 20)
+				else
+					return UDim2.fromOffset(size.X, size.Y)
+				end
 			end,
 			Position = framePosition,
 			ZIndex = zIndex,
@@ -144,6 +149,12 @@ return function(props: Props)
 					end,
 					BackgroundTransparency = 1,
 					Image = function()
+						local canCollapse = read(props.CanCollapse) :: boolean
+
+						if canCollapse == false then
+							return ""
+						end
+
 						if collapsed() == true then
 							return Images.ArrowRight
 						else
@@ -152,6 +163,12 @@ return function(props: Props)
 					end,
 
 					Activated = function()
+						local canCollapse = read(props.CanCollapse) :: boolean
+
+						if canCollapse == false then
+							return
+						end
+
 						collapsed(not collapsed())
 					end,
 				},
@@ -186,6 +203,10 @@ return function(props: Props)
 				BackgroundColor3 = function()
 					return Theme().Color.WidgetContainer
 				end,
+				Visible = function()
+					return collapsed() == false
+				end,
+				ScrollBarThickness = 10,
 
 				create("UIFlexItem") {
 					FlexMode = Enum.UIFlexMode.Fill,

@@ -8,6 +8,8 @@ export type WindowProps = {
 	Size: Prop<Vector2>?,
 	Title: Prop<string>?,
 	Visible: Vide.Source<boolean>?,
+	CanCollapse: Prop<boolean>?,
+	Children: { [any]: any }?,
 }
 
 export type Theme = {
