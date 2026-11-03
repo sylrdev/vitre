@@ -74,8 +74,8 @@ return function(props: Props)
 		local maxX = parent.AbsoluteSize.X - absoluteFrameSize().X - strokeThickness
 		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize().Y - strokeThickness
 
-		maxX = math.max(0, maxX)
-		maxY = math.max(0, maxY)
+		maxX = math.max(strokeThickness, maxX)
+		maxY = math.max(strokeThickness, maxY)
 
 		const newX = math.clamp(initialFramePosition.X.Offset + diffX, strokeThickness, maxX)
 		const newY = math.clamp(initialFramePosition.Y.Offset + diffY, strokeThickness, maxY)
@@ -149,6 +149,10 @@ return function(props: Props)
 						else
 							return Images.ArrowDown
 						end
+					end,
+
+					Activated = function()
+						collapsed(not collapsed())
 					end,
 				},
 
