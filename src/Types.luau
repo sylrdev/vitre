@@ -9,6 +9,7 @@ export type WindowProps = {
 	Title: Prop<string>?,
 	Visible: Vide.Source<boolean>?,
 	CanCollapse: Prop<boolean>?,
+	CanDrag: Prop<boolean>?,
 	Children: { [any]: any }?,
 }
 

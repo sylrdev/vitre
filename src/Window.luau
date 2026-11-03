@@ -38,6 +38,12 @@ return function(props: Props)
 	end
 
 	local connection1 = Internal.StartDrag:Connect(function(window: Types.Window)
+		local canDrag = read(props.CanDrag) :: boolean
+
+		if canDrag == false then
+			return
+		end
+
 		if window ~= instanceRef then
 			return
 		end
@@ -48,6 +54,12 @@ return function(props: Props)
 	end)
 
 	local connection2 = Internal.StopDrag:Connect(function(window: Types.Window)
+		local canDrag = read(props.CanDrag) :: boolean
+
+		if canDrag == false then
+			return
+		end
+
 		if window ~= instanceRef then
 			return
 		end

@@ -7,6 +7,7 @@ return {
 	controls = {
 		Visible = true,
 		CanCollapse = true,
+		CanDrag = true,
 	},
 	story = function(props: UILabs.VideProps)
 		Vitre:overrideUserInput(UILabs.Environment.UserInput)
@@ -14,6 +15,7 @@ return {
 		return Vitre.Window {
 			Visible = props.controls["Visible"],
 			CanCollapse = props.controls["CanCollapse"],
+			CanDrag = props.controls["CanDrag"],
 		}
 	end,
 }
