@@ -10,13 +10,20 @@ return {
 
 		return Vitre.Window {
 			Children = {
-				Vitre.Widget.Text {
-					Text = "Hello World!",
-				},
-				Vitre.Widget.Text {
-					Text = "<i>Hello World in color and italic!</i>",
-					Color = Tailwind.purple[500],
-					Rich = true,
+				{
+					Vitre.Widget.DividerText {
+						Text = "Text Widgets",
+					},
+
+					Vitre.Widget.Text {
+						Text = "Hello World!",
+					},
+
+					Vitre.Widget.Text {
+						Text = "<i>Hello World in color and italic!</i> <b>Bold too?</b>",
+						Color = Tailwind.purple[500],
+						Rich = true,
+					},
 				},
 			},
 		}

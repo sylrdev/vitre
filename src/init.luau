@@ -4,6 +4,7 @@ const RunService = game:GetService("RunService")
 const Internal = require("@self/Internal")
 const Theme = require("@self/Theme")
 const Types = require("@self/Types")
+const DividerText = require("@self/Widgets/DividerText")
 const Text = require("@self/Widgets/Text")
 const Window = require("@self/Window")
 const Vide = require("./Vide")
@@ -20,6 +21,7 @@ local windows = source {}
 const Vitre = {}
 Vitre.Widget = {
 	Text = Text,
+	DividerText = DividerText,
 }
 
 --[[
