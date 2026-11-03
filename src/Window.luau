@@ -1,5 +1,6 @@
 const Vide = require("../Vide")
 const DraggingHandler = require("./DraggingHandler")
+const useKey = require("./Hooks/useKey")
 const Images = require("./Images")
 const Internal = require("./Internal")
 const Theme = require("./Theme")
@@ -13,6 +14,7 @@ const source = Vide.source
 const effect = Vide.effect
 const changed = Vide.changed
 const show = Vide.show
+const derive = Vide.derive
 
 const DEFAULT_SIZE = Vector2.new(400, 450)
 const DEFAULT_TITLE = "Window"
@@ -33,9 +35,17 @@ return function(props: Props)
 
 	local collapsed = source(false)
 
-	local headerHeight = function()
+	local headerHeight = derive(function()
 		return Theme().TextSize + 5
-	end
+	end)
+
+	local cornerRadius = derive(function()
+		return UDim.new(0, Theme().CornerRadius)
+	end)
+
+	local padding = derive(function()
+		return UDim.new(0, Theme().Padding.WidgetContainer)
+	end)
 
 	local connection1 = Internal.StartDrag:Connect(function(window: Types.Window)
 		local canDrag = read(props.CanDrag) :: boolean
@@ -115,9 +125,7 @@ return function(props: Props)
 				end
 			end,
 			Position = framePosition,
-			BackgroundColor3 = function()
-				return Theme().Color.WidgetContainer
-			end,
+			BackgroundColor3 = useKey(Theme().Color.WidgetContainer),
 			ZIndex = zIndex,
 
 			action(function(instance)
@@ -130,18 +138,12 @@ return function(props: Props)
 			changed("AbsoluteSize", absoluteFrameSize :: any),
 
 			create("UICorner") {
-				CornerRadius = function()
-					return UDim.new(0, Theme().CornerRadius)
-				end,
+				CornerRadius = cornerRadius,
 			},
 
 			create("UIStroke") {
-				Color = function()
-					return Theme().Color.Stroke
-				end,
-				Thickness = function()
-					return Theme().StrokeThickness
-				end,
+				Color = useKey(Theme().Color.Stroke),
+				Thickness = useKey(Theme().StrokeThickness),
 			},
 
 			create("UIListLayout") {
@@ -153,14 +155,10 @@ return function(props: Props)
 				Size = function()
 					return UDim2.fromOffset(0, headerHeight())
 				end,
-				BackgroundColor3 = function()
-					return Theme().Color.Header
-				end,
+				BackgroundColor3 = useKey(Theme().Color.Header),
 
 				create("UICorner") {
-					CornerRadius = function()
-						return UDim.new(0, Theme().CornerRadius)
-					end,
+					CornerRadius = cornerRadius,
 				},
 
 				create("UIListLayout") {
@@ -204,16 +202,10 @@ return function(props: Props)
 					Name = "TitleLabel",
 					AutomaticSize = Enum.AutomaticSize.XY,
 					BackgroundTransparency = 1,
-					FontFace = function()
-						return Theme().Font.Header
-					end,
+					FontFace = useKey(Theme().Font.Header),
 					Text = props.Title or DEFAULT_TITLE,
-					TextColor3 = function()
-						return Theme().Color.Text
-					end,
-					TextSize = function()
-						return Theme().TextSize
-					end,
+					TextColor3 = useKey(Theme().Color.Text),
+					TextSize = useKey(Theme().TextSize),
 				},
 
 				create("Frame") {
@@ -227,9 +219,7 @@ return function(props: Props)
 
 			create("ScrollingFrame") {
 				Name = "WidgetContainer",
-				BackgroundColor3 = function()
-					return Theme().Color.WidgetContainer
-				end,
+				BackgroundColor3 = useKey(Theme().Color.WidgetContainer),
 				Visible = function()
 					return collapsed() == false
 				end,
@@ -238,9 +228,7 @@ return function(props: Props)
 				ScrollBarThickness = 10,
 
 				create("UICorner") {
-					CornerRadius = function()
-						return UDim.new(0, Theme().CornerRadius)
-					end,
+					CornerRadius = cornerRadius,
 				},
 
 				create("UIFlexItem") {
@@ -248,24 +236,14 @@ return function(props: Props)
 				},
 
 				create("UIPadding") {
-					PaddingTop = function()
-						return UDim.new(0, Theme().Padding.WidgetContainer)
-					end,
-					PaddingBottom = function()
-						return UDim.new(0, Theme().Padding.WidgetContainer)
-					end,
-					PaddingLeft = function()
-						return UDim.new(0, Theme().Padding.WidgetContainer)
-					end,
-					PaddingRight = function()
-						return UDim.new(0, Theme().Padding.WidgetContainer)
-					end,
+					PaddingTop = padding,
+					PaddingBottom = padding,
+					PaddingLeft = padding,
+					PaddingRight = padding,
 				},
 
 				create("UIListLayout") {
-					Padding = function()
-						return UDim.new(0, Theme().Padding.WidgetContainer)
-					end,
+					Padding = padding,
 				},
 
 				props.Children,
