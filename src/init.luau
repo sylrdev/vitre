@@ -5,6 +5,7 @@ const Internal = require("@self/Internal")
 const Theme = require("@self/Theme")
 const Types = require("@self/Types")
 const Button = require("@self/Widgets/Button")
+const Checkbox = require("@self/Widgets/Checkbox")
 const Divider = require("@self/Widgets/Divider")
 const DividerText = require("@self/Widgets/DividerText")
 const Indent = require("@self/Widgets/Indent")
@@ -34,6 +35,7 @@ Vitre.Widget = {
 	SameLine = SameLine,
 
 	Button = Button,
+	Checkbox = Checkbox,
 }
 
 --[[

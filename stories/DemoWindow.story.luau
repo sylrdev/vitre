@@ -77,6 +77,23 @@ return {
 						print("Cookie!")
 					end,
 				},
+
+				Vitre.Widget.Divider {},
+
+				Vitre.Widget.Checkbox {
+					Checked = source(true),
+					Text = "Option 1",
+				},
+
+				Vitre.Widget.Checkbox {
+					Checked = source(false),
+					Text = "Option 2",
+				},
+
+				Vitre.Widget.Checkbox {
+					Checked = source(false),
+					Text = "Option 3",
+				},
 			},
 		}
 	end,
