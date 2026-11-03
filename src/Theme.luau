@@ -11,7 +11,7 @@ local Theme: Types.Theme = {
 		Stroke = Tailwind.neutral[400],
 		Text = Tailwind.neutral[200],
 		PlaceholderText = Tailwind.neutral[400],
-		Widget = Tailwind.blue[700],
+		Widget = Tailwind.blue[600],
 	},
 
 	CornerRadius = 2,

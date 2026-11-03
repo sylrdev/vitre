@@ -66,6 +66,17 @@ return {
 						Rich = true,
 					},
 				},
+
+				Vitre.Widget.DividerText {
+					Text = "Buttons",
+				},
+
+				Vitre.Widget.Button {
+					Text = "Basic Button",
+					Activated = function()
+						print("Cookie!")
+					end,
+				},
 			},
 		}
 	end,

@@ -239,7 +239,9 @@ return function(props: Props)
 					PaddingTop = padding,
 					PaddingBottom = padding,
 					PaddingLeft = padding,
-					PaddingRight = padding,
+					PaddingRight = function()
+						return UDim.new(0, Theme().Padding.WidgetContainer + 10)
+					end,
 				},
 
 				create("UIListLayout") {
