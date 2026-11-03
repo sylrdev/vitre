@@ -50,6 +50,22 @@ return {
 						Text = "Indented Text",
 					},
 				},
+
+				Vitre.Widget.SameLine {
+					Vitre.Widget.Text {
+						Text = "Same Line Text",
+					},
+
+					Vitre.Widget.TextBox {
+						Text = source(""),
+					},
+
+					Vitre.Widget.Text {
+						Text = "<i><u>Hello World!</u></i>",
+						Color = Tailwind.teal[500],
+						Rich = true,
+					},
+				},
 			},
 		}
 	end,

@@ -7,6 +7,7 @@ const Types = require("@self/Types")
 const Divider = require("@self/Widgets/Divider")
 const DividerText = require("@self/Widgets/DividerText")
 const Indent = require("@self/Widgets/Indent")
+const SameLine = require("@self/Widgets/SameLine")
 const Text = require("@self/Widgets/Text")
 const TextBox = require("@self/Widgets/TextBox")
 const Window = require("@self/Window")
@@ -29,6 +30,7 @@ Vitre.Widget = {
 
 	Divider = Divider,
 	Indent = Indent,
+	SameLine = SameLine,
 }
 
 --[[
