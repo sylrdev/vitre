@@ -21,6 +21,8 @@ export type Theme = {
 		Text: Color3,
 	},
 
+	CornerRadius: number,
+
 	StrokeThickness: number,
 
 	TextSize: number,

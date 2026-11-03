@@ -1,3 +1,3 @@
-- corner radius
 - header toggle
 - widgets
+- dont drag window when in collapse button

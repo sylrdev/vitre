@@ -12,6 +12,8 @@ local Theme: Types.Theme = {
 		Text = Tailwind.neutral[200],
 	},
 
+	CornerRadius = 2,
+
 	StrokeThickness = 2,
 
 	TextSize = 15,

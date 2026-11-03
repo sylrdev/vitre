@@ -115,6 +115,9 @@ return function(props: Props)
 				end
 			end,
 			Position = framePosition,
+			BackgroundColor3 = function()
+				return Theme().Color.WidgetContainer
+			end,
 			ZIndex = zIndex,
 
 			action(function(instance)
@@ -125,6 +128,12 @@ return function(props: Props)
 			changed("Position", framePosition :: any),
 
 			changed("AbsoluteSize", absoluteFrameSize :: any),
+
+			create("UICorner") {
+				CornerRadius = function()
+					return UDim.new(0, Theme().CornerRadius)
+				end,
+			},
 
 			create("UIStroke") {
 				Color = function()
@@ -147,6 +156,12 @@ return function(props: Props)
 				BackgroundColor3 = function()
 					return Theme().Color.Header
 				end,
+
+				create("UICorner") {
+					CornerRadius = function()
+						return UDim.new(0, Theme().CornerRadius)
+					end,
+				},
 
 				create("UIListLayout") {
 					FillDirection = Enum.FillDirection.Horizontal,
@@ -219,6 +234,12 @@ return function(props: Props)
 					return collapsed() == false
 				end,
 				ScrollBarThickness = 10,
+
+				create("UICorner") {
+					CornerRadius = function()
+						return UDim.new(0, Theme().CornerRadius)
+					end,
+				},
 
 				create("UIFlexItem") {
 					FlexMode = Enum.UIFlexMode.Fill,
