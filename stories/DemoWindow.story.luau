@@ -30,6 +30,8 @@ return {
 						Rich = true,
 					},
 
+					Vitre.Widget.Divider {},
+
 					Vitre.Widget.TextBox {
 						Text = textBoxText,
 					},

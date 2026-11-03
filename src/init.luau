@@ -4,6 +4,7 @@ const RunService = game:GetService("RunService")
 const Internal = require("@self/Internal")
 const Theme = require("@self/Theme")
 const Types = require("@self/Types")
+const Divider = require("@self/Widgets/Divider")
 const DividerText = require("@self/Widgets/DividerText")
 const Text = require("@self/Widgets/Text")
 const TextBox = require("@self/Widgets/TextBox")
@@ -24,6 +25,8 @@ Vitre.Widget = {
 	Text = Text,
 	DividerText = DividerText,
 	TextBox = TextBox,
+
+	Divider = Divider,
 }
 
 --[[
