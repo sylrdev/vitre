@@ -10,6 +10,8 @@ local Theme: Types.Theme = {
 		WidgetContainer = Tailwind.neutral[800],
 		Stroke = Tailwind.neutral[400],
 		Text = Tailwind.neutral[200],
+		PlaceholderText = Tailwind.neutral[400],
+		Widget = Tailwind.blue[700],
 	},
 
 	CornerRadius = 2,
@@ -21,6 +23,7 @@ local Theme: Types.Theme = {
 
 	Padding = {
 		WidgetContainer = 5,
+		Widget = 3,
 	},
 
 	StrokeThickness = 2,

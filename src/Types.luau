@@ -19,6 +19,8 @@ export type Theme = {
 		WidgetContainer: Color3,
 		Stroke: Color3,
 		Text: Color3,
+		PlaceholderText: Color3,
+		Widget: Color3,
 	},
 
 	CornerRadius: number,
@@ -30,6 +32,7 @@ export type Theme = {
 
 	Padding: {
 		WidgetContainer: number,
+		Widget: number,
 	},
 
 	StrokeThickness: number,

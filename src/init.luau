@@ -6,6 +6,7 @@ const Theme = require("@self/Theme")
 const Types = require("@self/Types")
 const DividerText = require("@self/Widgets/DividerText")
 const Text = require("@self/Widgets/Text")
+const TextBox = require("@self/Widgets/TextBox")
 const Window = require("@self/Window")
 const Vide = require("./Vide")
 
@@ -22,6 +23,7 @@ const Vitre = {}
 Vitre.Widget = {
 	Text = Text,
 	DividerText = DividerText,
+	TextBox = TextBox,
 }
 
 --[[
