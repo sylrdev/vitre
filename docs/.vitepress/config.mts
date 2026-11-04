@@ -21,6 +21,11 @@ export default defineConfig({
             { text: "Installation", link: "/get-started/2-installation" },
           ],
         },
+
+        {
+          text: "Use Vitre",
+          items: [{ text: "Setting Up", link: "/get-started/3-setting-up" }],
+        },
       ],
       "/api/": [
         {
