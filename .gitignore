@@ -2,6 +2,9 @@ packages/
 .ember-patch/
 Packages/
 DevPackages/
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
 
 sourcemap.json
 .env
