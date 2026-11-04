@@ -24,7 +24,13 @@ export default defineConfig({
 
         {
           text: "Use Vitre",
-          items: [{ text: "Setting Up", link: "/get-started/3-setting-up" }],
+          items: [
+            { text: "Setting Up", link: "/get-started/3-setting-up" },
+            {
+              text: "Your First Window",
+              link: "/get-started/4-your-first-window",
+            },
+          ],
         },
       ],
       "/api/": [
