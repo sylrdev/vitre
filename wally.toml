@@ -1,8 +1,14 @@
 [package]
 name = "sylrdev/vitre"
+description = "Developer focused UI library based on Vide."
 version = "0.1.0"
-registry = "https://github.com/UpliftGames/wally-index"
+license = "MIT"
+authors = ["SylrDev <sylrdev@gmail.com>"]
 realm = "shared"
+registry = "https://github.com/UpliftGames/wally-index"
+repository = "https://github.com/sylrdev/vitre"
+exclude = ["**"]
+include = ["src", "src/*", "default.project.json", "wally.lock", "wally.toml"]
 
 [dependencies]
 Vide = "sylrdev/vide@0.4.1"
