@@ -67,10 +67,10 @@ All of the widgets can be found under `Vitre.Widget`. They are Vide components s
 
 ## TODO
 - header toggle
+- fix `Vitre.Window()`
 - widgets
     - tree
-    - tables
+    - table
     - graphs? (maybe with an addon)
 - dont drag window when in collapse button
-- publish on wally
 - proper documentation

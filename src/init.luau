@@ -20,10 +20,12 @@ const mount = Vide.mount
 const create = Vide.create
 const source = Vide.source
 const indexes = Vide.indexes
+const action = Vide.action
 
 const IS_STORY = RunService:IsStudio() == true and RunService:IsRunning() == false
 
 local windows = source {}
+local windowContainerRef: Frame
 
 const Vitre = {}
 Vitre.Widget = {
@@ -64,8 +66,8 @@ function Vitre:setup()
 				Size = UDim2.fromScale(1, 1),
 				BackgroundTransparency = 1,
 
-				indexes(windows, function(prop: () -> Types.WindowProps)
-					return Window(prop())
+				action(function(instance)
+					windowContainerRef = instance :: Frame
 				end),
 			},
 		}
@@ -75,18 +77,20 @@ end
 --[[
 	Creates a window component.
 
+	WARNING: Broken function. Use `Vitre.WindowRaw()` instead.
+
 	@param props: WindowProps - Properties to apply to the window component
 	@return any? - Created window when in a story environment, nil otherwise
 ]]
-function Vitre.Window(props: Types.WindowProps): any?
-	if IS_STORY == true then
-		return Window(props)
-	else
-		local clone = table.clone(windows())
-		table.insert(clone, props)
-		windows(clone)
+function Vitre.Window(props: () -> Types.WindowProps): any?
+	warn("Vitre.Window() is broken and doesn't behave the way it is intended to.")
 
-		return
+	if IS_STORY == true then
+		return Window(props())
+	else
+		return Vide.mount(function()
+			return Window(props())
+		end, windowContainerRef)
 	end
 end
 
