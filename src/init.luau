@@ -40,6 +40,8 @@ Vitre.Widget = {
 	RadioButton = RadioButton,
 }
 
+Vitre.Vide = Vide
+
 --[[
 	Sets up the app to render windows in while emulating.
 
