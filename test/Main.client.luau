@@ -1,11 +1,18 @@
 const Vitre = require("@game/ReplicatedStorage/Packages/Vitre")
 
 Vitre:setup()
-Vitre.Window(function()
-	return {
+Vitre:append(function()
+	return Vitre.Window {
 		Children = {
 			Vitre.Widget.Text {
-				Text = "Test",
+				Text = "Hello World!",
+			},
+
+			Vitre.Widget.Button {
+				Text = "Get Cookies",
+				Activated = function()
+					print("Cookies!")
+				end,
 			},
 		},
 	}

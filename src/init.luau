@@ -18,31 +18,31 @@ const Vide = require("./Vide")
 
 const mount = Vide.mount
 const create = Vide.create
-const source = Vide.source
-const indexes = Vide.indexes
 const action = Vide.action
 
 const IS_STORY = RunService:IsStudio() == true and RunService:IsRunning() == false
 
-local windows = source {}
 local windowContainerRef: Frame
 
-const Vitre = {}
-Vitre.Widget = {
-	Text = Text,
-	DividerText = DividerText,
-	TextBox = TextBox,
+const Vitre = {
+	Window = Window,
 
-	Divider = Divider,
-	Indent = Indent,
-	SameLine = SameLine,
+	Widget = {
+		Text = Text,
+		DividerText = DividerText,
+		TextBox = TextBox,
 
-	Button = Button,
-	Checkbox = Checkbox,
-	RadioButton = RadioButton,
+		Divider = Divider,
+		Indent = Indent,
+		SameLine = SameLine,
+
+		Button = Button,
+		Checkbox = Checkbox,
+		RadioButton = RadioButton,
+	},
+
+	Vide = Vide,
 }
-
-Vitre.Vide = Vide
 
 --[[
 	Sets up the app to render windows in while emulating.
@@ -75,34 +75,12 @@ function Vitre:setup()
 end
 
 --[[
-	Creates a window component.
+	Adds a component to render in the Vitre App.
 
-	WARNING: Broken function. Use `Vitre.WindowRaw()` instead.
-
-	@param props: WindowProps - Properties to apply to the window component
-	@return any? - Created window when in a story environment, nil otherwise
+	@param component: () -> any - Component to render.
 ]]
-function Vitre.Window(props: () -> Types.WindowProps): any?
-	warn("Vitre.Window() is broken and doesn't behave the way it is intended to.")
-
-	if IS_STORY == true then
-		return Window(props())
-	else
-		return Vide.mount(function()
-			return Window(props())
-		end, windowContainerRef)
-	end
-end
-
---[[
-	Creates a window raw component.
-
-	Note: Useful if you want to render the window in something other than the default App. (ex: plugin widget)
-
-	@param props: WindowProps - Properties to apply to the window component
-]]
-function Vitre.WindowRaw(props: Types.WindowProps)
-	return Window(props)
+function Vitre:append(component: () -> any)
+	mount(component, windowContainerRef)
 end
 
 --[[

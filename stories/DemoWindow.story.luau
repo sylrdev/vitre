@@ -13,7 +13,7 @@ return {
 		local textBoxText = source("")
 		local radioButtonIndex = source(1)
 
-		return Vitre.WindowRaw {
+		return Vitre.Window {
 			Title = "Demo Window",
 			Children = {
 				Vitre.Widget.DividerText {
