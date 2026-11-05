@@ -45,7 +45,7 @@ export default defineConfig({
       "/api/": [
         {
           text: "Vitre",
-          items: [],
+          items: [{ text: ":setup()", link: "/api/vitre/1-setup" }],
         },
         {
           text: "Widgets",
