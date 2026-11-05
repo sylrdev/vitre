@@ -2,13 +2,14 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: "en-US",
   title: "Vitre",
   description: "Developer focused UI based on Vide",
   base: "vitre",
-  head: [["link", { rel: "icon", href: "logo.svg" }]],
+  head: [["link", { rel: "icon", href: "/vitre/logo.svg" }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: "logo.svg",
+    logo: "/logo.svg",
 
     nav: [
       { text: "Home", link: "/" },
@@ -16,7 +17,14 @@ export default defineConfig({
       { text: "API", link: "/api/vitre/1-setup" },
     ],
 
-    search: { provider: "local" },
+    search: {
+      provider: "local",
+    },
+
+    footer: {
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2026 sylrdev",
+    },
 
     sidebar: {
       "/get-started/": [

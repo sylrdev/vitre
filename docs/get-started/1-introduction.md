@@ -17,4 +17,6 @@ The problems Vitre aims to solve are the following:
 
 ### Why the Name?
 
+Pronounced /vitʁ/.
+
 Since I am French, Vitre means glass pane in French.
