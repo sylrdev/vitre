@@ -53,6 +53,7 @@ export default defineConfig({
               link: "/api/vitre/3-override-user-input",
             },
             { text: ":overrideTheme()", link: "/api/vitre/4-override-theme" },
+            { text: ".Window()", link: "/api/vitre/5-window" },
           ],
         },
         {
@@ -61,7 +62,7 @@ export default defineConfig({
         },
         {
           text: "Types",
-          items: [],
+          items: [{ text: ".Prop", link: "/api/types/1-prop" }],
         },
       ],
     },
