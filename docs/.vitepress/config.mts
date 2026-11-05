@@ -4,6 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Vitre",
   description: "Developer focused UI based on Vide",
+  base: "vitre",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
