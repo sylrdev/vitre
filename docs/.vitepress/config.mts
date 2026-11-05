@@ -60,7 +60,7 @@ export default defineConfig({
         },
         {
           text: "Widgets",
-          items: [],
+          items: [{ text: ".Text()", link: "/api/widgets/1-text" }],
         },
         {
           text: "Types",
