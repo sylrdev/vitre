@@ -2,7 +2,9 @@
 
 Vitre is a developer focused reactive UI library. It is based on centau's work: Vide.
 
-If you have experience with Vide, most of its concepts can carry over to Vitre.
+If you have experience with Vide or reactive UI frameworks in general, most of their concepts can carry over to Vitre.
+
+If you don't, it is recommended that you take a glance at the Vide documentation to develop an understanding of its core concepts.
 
 ---
 

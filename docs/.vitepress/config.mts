@@ -31,6 +31,7 @@ export default defineConfig({
               text: "Your First Window",
               link: "/get-started/5-your-first-window",
             },
+            { text: "Reactive Window", link: "/get-started/6-reactive-window" },
           ],
         },
       ],

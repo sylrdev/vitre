@@ -9,7 +9,7 @@ Let's start by designing a quick window featuring a clickable button in a `Modul
 The window component is accessible through `Vitre.Window()`.
 
 ```luau
---MyWindow.luau
+-- MyWindow.luau
 const Vitre = require(path.to.Vitre)
 
 return function()
@@ -36,7 +36,7 @@ Now that we have a window designed, it's time to render it on the screen!
 In order to achive that, we're going to use `Vitre:append()`. The goal of that method is to mount anything to the `ScreenGui` created by Vitre when we ran `Vitre:setup()`.
 
 ```luau
---Main.client.luau
+-- Main.client.luau
 const Vitre = require(path.to.Vitre)
 const MyWindow = require("@self/MyWindow")
 
