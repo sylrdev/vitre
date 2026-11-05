@@ -45,36 +45,15 @@ export default defineConfig({
       "/api/": [
         {
           text: "Vitre",
-          items: [
-            { text: ":setup()", link: "/api/1-setup" },
-            { text: ":append()", link: "/api/2-append" },
-            {
-              text: ":overrideUserInput()",
-              link: "/api/3-override-user-input",
-            },
-            { text: ":overrideTheme()", link: "/api/4-override-theme" },
-            { text: ".Window()", link: "" },
-            { text: ".Widget", link: "" },
-            { text: ".Vide", link: "" },
-          ],
+          items: [],
         },
         {
           text: "Widgets",
-          items: [
-            { text: ".Text()", link: "" },
-            { text: ".DividerText()", link: "" },
-            { text: ".TextBox()", link: "" },
-            { text: ".Divider()", link: "" },
-            { text: ".Indent()", link: "" },
-            { text: ".SameLine()", link: "" },
-            { text: ".Button()", link: "" },
-            { text: ".Checkbox()", link: "" },
-            { text: ".RadioButton()", link: "" },
-          ],
+          items: [],
         },
         {
           text: "Types",
-          items: [{ text: "TODO", link: "" }],
+          items: [],
         },
       ],
     },
