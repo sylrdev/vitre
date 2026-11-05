@@ -52,7 +52,7 @@ export default defineConfig({
               text: ":overrideUserInput()",
               link: "/api/3-override-user-input",
             },
-            { text: ":overrideTheme()", link: "" },
+            { text: ":overrideTheme()", link: "/api/4-override-theme" },
             { text: ".Window()", link: "" },
             { text: ".Widget", link: "" },
             { text: ".Vide", link: "" },
