@@ -22,7 +22,14 @@ const DEFAULT_VISIBLE = true
 
 local zIndex = 0
 
-type Props = Types.WindowProps
+type Props = {
+	Size: Types.Prop<Vector2>?,
+	Title: Types.Prop<string>?,
+	Visible: Vide.Source<boolean>?,
+	CanCollapse: Types.Prop<boolean>?,
+	CanDrag: Types.Prop<boolean>?,
+	Children: { [any]: any }?,
+}
 
 return function(props: Props)
 	local instanceRef: Types.Window
