@@ -48,7 +48,10 @@ export default defineConfig({
           items: [
             { text: ":setup()", link: "/api/1-setup" },
             { text: ":append()", link: "/api/2-append" },
-            { text: ":overrideUserInput()", link: "" },
+            {
+              text: ":overrideUserInput()",
+              link: "/api/3-override-user-input",
+            },
             { text: ":overrideTheme()", link: "" },
             { text: ".Window()", link: "" },
             { text: ".Widget", link: "" },
