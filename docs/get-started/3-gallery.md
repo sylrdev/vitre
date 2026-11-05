@@ -5,6 +5,6 @@ Before learning how to use Vitre, let's dive in to see what's possible to achiev
 You don't want to jump in with eyes closed just in case Vitre doesn't suit your needs.
 
 
-## TODO
+## Demo Window
 
-TODO
+![image](../assets/3-1-gallery.png)

@@ -75,7 +75,7 @@ Vitre.Widget.Text {
 },
 ```
 
-If you don't understand why the `Text` property of our text widget is a function, I recommend checking the sources pages on the Vide docs.
+If you don't understand why the `Text` property of our text widget is a function, I recommend checking the [sources page](https://centau.github.io/vide/tut/crash-course/4-source.html) on the Vide docs.
 
 And here we go, we now have text in our window, reading the content of the source.
 
@@ -101,4 +101,4 @@ Click a couple times on the button and your number of cookies should go up!
 
 ---
 
-You now have all the keys in hand to start your development journey with Vitre. If you're confused about some concepts, it is recommended that you check out Vide.
+You now have all the keys in hand to start your development journey with Vitre. If you're confused about some concepts, it is recommended that you check out [Vide](https://centau.github.io/vide/).
