@@ -32,19 +32,21 @@ export default defineConfig({
               link: "/get-started/5-your-first-window",
             },
             { text: "Reactive Window", link: "/get-started/6-reactive-window" },
+            { text: "Stories", link: "/get-started/7-stories" },
           ],
         },
       ],
       "/api/": [
         {
-          text: "Examples",
+          text: "",
           items: [],
         },
       ],
     },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "discord", link: "https://discord.gg/Bakn4qDtYz" },
+      { icon: "github", link: "https://github.com/sylrdev/vitre" },
     ],
   },
 });
