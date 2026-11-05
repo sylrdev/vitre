@@ -6,6 +6,8 @@ hero:
   name: "Vitre"
   text: "Developer focused UI based on Vide"
   tagline: Speeds up developer tools development
+  image:
+    src: logo.svg
   actions:
     - theme: brand
       text: Get Started

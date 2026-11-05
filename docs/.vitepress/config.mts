@@ -5,8 +5,10 @@ export default defineConfig({
   title: "Vitre",
   description: "Developer focused UI based on Vide",
   base: "vitre",
+  head: [["link", { rel: "icon", href: "logo.svg" }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: "logo.svg",
     nav: [
       { text: "Home", link: "/" },
       { text: "Get Started", link: "/get-started/1-introduction" },
