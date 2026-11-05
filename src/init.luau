@@ -44,6 +44,8 @@ const Vitre = {
 	Vide = Vide,
 }
 
+export type Prop<T> = Types.Prop<T>
+
 --[[
 	Sets up the app to render windows in while emulating.
 

@@ -13,11 +13,11 @@ function Vitre.Window(props: Props)
 - **Props**:
 ```luau
 type Props = {
-	Size: Types.Prop<Vector2>?,
-	Title: Types.Prop<string>?,
+	Size: Prop<Vector2>?,
+	Title: Prop<string>?,
 	Visible: Vide.Source<boolean>?,
-	CanCollapse: Types.Prop<boolean>?,
-	CanDrag: Types.Prop<boolean>?,
+	CanCollapse: Prop<boolean>?,
+	CanDrag: Prop<boolean>?,
 	Children: { [any]: any }?,
 }
 ```
