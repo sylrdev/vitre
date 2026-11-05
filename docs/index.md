@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Vitre"
   text: "Developer focused UI based on Vide"
-  tagline: Speed up developer tools development
+  tagline: Speeds up developer tools development
   actions:
     - theme: brand
       text: Get Started
@@ -15,11 +15,11 @@ hero:
       link: /api/
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Quick & easy to use
+    details: Provides a simple API and a set of widget to power dev tools development.
+  - title: Flexible
+    details: Theme it. Write your own widgets and shape the library to fit your specific structure.
+  - title: Vide based
+    details: UI components are developed with the battle tested UI framework Vide.
 ---
 
