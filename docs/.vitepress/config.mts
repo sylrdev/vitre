@@ -55,6 +55,7 @@ export default defineConfig({
             { text: ":overrideTheme()", link: "/api/vitre/4-override-theme" },
             { text: ".Window()", link: "/api/vitre/5-window" },
             { text: ".Widget", link: "/api/vitre/6-widget" },
+            { text: ".Vide", link: "/api/vitre/7-vide" },
           ],
         },
         {
