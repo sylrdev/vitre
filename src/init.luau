@@ -75,7 +75,7 @@ function Vitre:setup()
 end
 
 --[[
-	Adds a component to render in the Vitre App.
+	Adds a component to render in the Vitre app.
 
 	@param component: () -> any - Component to render.
 ]]

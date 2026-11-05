@@ -48,6 +48,10 @@ export default defineConfig({
           items: [
             { text: ":setup()", link: "/api/vitre/1-setup" },
             { text: ":append()", link: "/api/vitre/2-append" },
+            {
+              text: ":overrideUserInput()",
+              link: "/api/vitre/3-override-user-input",
+            },
           ],
         },
         {
