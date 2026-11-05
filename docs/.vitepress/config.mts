@@ -19,16 +19,17 @@ export default defineConfig({
           items: [
             { text: "Introduction", link: "/get-started/1-introduction" },
             { text: "Installation", link: "/get-started/2-installation" },
+            { text: "Gallery", link: "/get-started/3-gallery" },
           ],
         },
 
         {
           text: "Use Vitre",
           items: [
-            { text: "Setting Up", link: "/get-started/3-setting-up" },
+            { text: "Setting Up", link: "/get-started/4-setting-up" },
             {
               text: "Your First Window",
-              link: "/get-started/4-your-first-window",
+              link: "/get-started/5-your-first-window",
             },
           ],
         },
