@@ -14,7 +14,7 @@ hero:
       link: /get-started/1-introduction
     - theme: alt
       text: View API
-      link: /api/
+      link: /api/1-setup
 
 features:
   - title: Quick & easy to use

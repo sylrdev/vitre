@@ -9,11 +9,14 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "logo.svg",
+
     nav: [
       { text: "Home", link: "/" },
       { text: "Get Started", link: "/get-started/1-introduction" },
-      { text: "API", link: "/api/" },
+      { text: "API", link: "/api/1-setup" },
     ],
+
+    search: { provider: "local" },
 
     sidebar: {
       "/get-started/": [
@@ -41,8 +44,34 @@ export default defineConfig({
       ],
       "/api/": [
         {
-          text: "",
-          items: [],
+          text: "Vitre",
+          items: [
+            { text: ":setup()", link: "/api/1-setup" },
+            { text: ":append()", link: "/api/2-append" },
+            { text: ":overrideUserInput()", link: "" },
+            { text: ":overrideTheme()", link: "" },
+            { text: ".Window()", link: "" },
+            { text: ".Widget", link: "" },
+            { text: ".Vide", link: "" },
+          ],
+        },
+        {
+          text: "Widgets",
+          items: [
+            { text: ".Text()", link: "" },
+            { text: ".DividerText()", link: "" },
+            { text: ".TextBox()", link: "" },
+            { text: ".Divider()", link: "" },
+            { text: ".Indent()", link: "" },
+            { text: ".SameLine()", link: "" },
+            { text: ".Button()", link: "" },
+            { text: ".Checkbox()", link: "" },
+            { text: ".RadioButton()", link: "" },
+          ],
+        },
+        {
+          text: "Types",
+          items: [{ text: "TODO", link: "" }],
         },
       ],
     },
