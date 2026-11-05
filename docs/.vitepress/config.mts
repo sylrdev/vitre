@@ -13,7 +13,7 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Get Started", link: "/get-started/1-introduction" },
-      { text: "API", link: "/api/1-setup" },
+      { text: "API", link: "/api/vitre/1-setup" },
     ],
 
     search: { provider: "local" },
@@ -52,6 +52,7 @@ export default defineConfig({
               text: ":overrideUserInput()",
               link: "/api/vitre/3-override-user-input",
             },
+            { text: ":overrideTheme()", link: "/api/vitre/4-override-theme" },
           ],
         },
         {
