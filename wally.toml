@@ -6,6 +6,7 @@ license = "MIT"
 authors = ["SylrDev <sylrdev@gmail.com>"]
 realm = "shared"
 registry = "https://github.com/UpliftGames/wally-index"
+homepage = "https://sylrdev.github.io/vitre/"
 repository = "https://github.com/sylrdev/vitre"
 exclude = ["**"]
 include = ["src", "src/*", "default.project.json", "wally.lock", "wally.toml"]

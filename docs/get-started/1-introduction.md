@@ -1,6 +1,6 @@
 # Introduction
 
-Vitre is a developer focused reactive UI library. It is based on centau's work: [Vide](https://centau.github.io/vide/) and the aesthetic is inspired by [Iris](https://sirmallard.github.io/Iris/).
+Vitre is a developer focused reactive UI library. It is based on centau's work: [Vide](https://centau.github.io/vide/). The aesthetic is inspired by [Iris](https://sirmallard.github.io/Iris/) and [ImGUI](https://github.com/ocornut/imgui).
 
 If you have experience with Vide or reactive UI frameworks in general, most of their concepts can carry over to Vitre.
 
