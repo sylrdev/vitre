@@ -1,4 +1,4 @@
-# Vitre.Widget.DividerText()
+# .Widget.DividerText()
 
 Returns a divider text widget Vide component.
 

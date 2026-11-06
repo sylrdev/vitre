@@ -1,4 +1,4 @@
-# Vitre.Widget.Text()
+# .Widget.Text()
 
 Returns a text widget Vide component.
 
