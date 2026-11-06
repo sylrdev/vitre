@@ -64,7 +64,6 @@ $ crater add wally#sylrdev/vitre@0.2.3
 
 ## TODO
 - typescript definitions + publish under @rbxts
-- header toggle
 - widgets
     - tree
     - table
@@ -78,4 +77,4 @@ $ crater add wally#sylrdev/vitre@0.2.3
 - [Vide](https://github.com/centau/vide) for providing the framework Vitre is based on
 - [Iris](https://github.com/SirMallard/Iris) for being a pillar in the creation of this resource
 - [ui-labs](https://github.com/PepeElToro41/ui-labs) for making such a great storybook plugin
-- The [Replecs Docs](https://pepeeltoro41.github.io/replecs/) which I followed the documentation redacting style of
+- The [Replecs Docs](https://pepeeltoro41.github.io/replecs/) of which I followed the API reference writting style

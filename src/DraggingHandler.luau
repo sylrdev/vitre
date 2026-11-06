@@ -103,6 +103,13 @@ end
 ]]
 function DraggingHandler.registerWindow(self: DraggingHandler, window: Types.Window)
 	self:init()
+
+	local index = table.find(windows, window)
+
+	if index ~= nil then
+		return
+	end
+
 	table.insert(windows, window)
 end
 

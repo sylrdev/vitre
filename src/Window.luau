@@ -27,6 +27,7 @@ type Props = {
 	Visible: Vide.Source<boolean>?,
 	CanCollapse: Types.Prop<boolean>?,
 	CanDrag: Types.Prop<boolean>?,
+	NoHeader: Types.Prop<boolean>?,
 	Children: { [any]: any }?,
 }
 
@@ -54,7 +55,7 @@ return function(props: Props)
 	end)
 
 	local connection1 = Internal.StartDrag:Connect(function(window: Types.Window)
-		local canDrag = read(props.CanDrag) :: boolean
+		const canDrag = read(props.CanDrag) :: boolean
 
 		if canDrag == false then
 			return
@@ -70,7 +71,7 @@ return function(props: Props)
 	end)
 
 	local connection2 = Internal.StopDrag:Connect(function(window: Types.Window)
-		local canDrag = read(props.CanDrag) :: boolean
+		const canDrag = read(props.CanDrag) :: boolean
 
 		if canDrag == false then
 			return
@@ -98,7 +99,7 @@ return function(props: Props)
 		const diffY = pointerPosition.Y - initialPointerPoisiton.Y
 
 		const parent = instanceRef.Parent :: GuiObject
-		local strokeThickness = Theme().StrokeThickness
+		const strokeThickness = Theme().StrokeThickness
 		local maxX = parent.AbsoluteSize.X - absoluteFrameSize().X - strokeThickness
 		local maxY = parent.AbsoluteSize.Y - absoluteFrameSize().Y - strokeThickness
 
@@ -109,6 +110,16 @@ return function(props: Props)
 		const newY = math.clamp(initialFramePosition.Y.Offset + diffY, strokeThickness, maxY)
 
 		framePosition(UDim2.fromOffset(newX, newY))
+	end)
+
+	effect(function()
+		const noHeader = read(props.NoHeader) :: boolean
+
+		if noHeader == true then
+			DraggingHandler:unregisterWindow(instanceRef)
+		else
+			DraggingHandler:registerWindow(instanceRef)
+		end
 	end)
 
 	cleanup(function()
@@ -138,6 +149,13 @@ return function(props: Props)
 
 			action(function(instance)
 				instanceRef = instance :: Types.Window
+
+				const noHeader = read(props.NoHeader) :: boolean
+
+				if noHeader == true then
+					return
+				end
+
 				DraggingHandler:registerWindow(instance :: Types.Window)
 			end),
 
@@ -169,6 +187,10 @@ return function(props: Props)
 				end,
 				BackgroundColor3 = function()
 					return Theme().Color.Header
+				end,
+				Visible = function()
+					const noHeader = read(props.NoHeader) :: boolean
+					return noHeader ~= true
 				end,
 
 				create("UICorner") {
