@@ -76,6 +76,7 @@ export default defineConfig({
             { text: ".Indent()", link: "/api/widgets/5-indent" },
             { text: ".SameLine()", link: "/api/widgets/6-same-line" },
             { text: ".Button()", link: "/api/widgets/7-button" },
+            { text: ".Checkbox()", link: "/api/widgets/8-checkbox" },
           ],
         },
         {
