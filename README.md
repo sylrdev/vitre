@@ -27,7 +27,7 @@ Add the following to your `wally.toml` file and run `wally install` in your cons
 
 ```toml
 [Packages]
-Vitre = "sylrdev/vitre@0.2.1"
+Vitre = "sylrdev/vitre@0.2.2"
 ```
 
 ### [Pesde](https://pesde.dev/)
@@ -59,7 +59,7 @@ $ embr add sylrdev/vitre --index wally
 Run the following in your console.
 
 ```sh
-$ crater add wally#sylrdev/vitre@0.2.1
+$ crater add wally#sylrdev/vitre@0.2.2
 ```
 
 ## TODO
