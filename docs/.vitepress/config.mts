@@ -68,7 +68,10 @@ export default defineConfig({
         },
         {
           text: "Widgets",
-          items: [{ text: ".Text()", link: "/api/widgets/1-text" }],
+          items: [
+            { text: ".Text()", link: "/api/widgets/1-text" },
+            { text: ".DividerText()", link: "/api/widgets/2-divider-text" },
+          ],
         },
         {
           text: "Types",

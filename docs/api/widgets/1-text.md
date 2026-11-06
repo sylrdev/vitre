@@ -6,6 +6,9 @@ Returns a text widget Vide component.
 function(props: Props)
 ```
 
+### Arguments
+- **props**: Properties to apply to the text.
+
 ### Types
 - **Props**:
 ```luau
