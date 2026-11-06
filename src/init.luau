@@ -1,10 +1,10 @@
 const Players = game:GetService("Players")
 const RunService = game:GetService("RunService")
 
+const DeepCopy = require("@self/DeepCopy")
 const Internal = require("@self/Internal")
 const Theme = require("@self/Theme")
 const Types = require("@self/Types")
-const DeepCopy = require("@self/Utils/DeepCopy")
 const Button = require("@self/Widgets/Button")
 const Checkbox = require("@self/Widgets/Checkbox")
 const Divider = require("@self/Widgets/Divider")
