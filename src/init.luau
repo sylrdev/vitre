@@ -98,7 +98,7 @@ function Vitre:overrideUserInput(uis: UserInputService)
 end
 
 --[[
-	Overrides the default theme with a custom one.
+	Overrides the default theme with a custom one. Missing keys from the custom theme will get filled with defaults.
 
 	@param newTheme: Theme - New theme to use.
 ]]
