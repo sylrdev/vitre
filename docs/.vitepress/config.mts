@@ -72,6 +72,7 @@ export default defineConfig({
             { text: ".Text()", link: "/api/widgets/1-text" },
             { text: ".DividerText()", link: "/api/widgets/2-divider-text" },
             { text: ".Textbox()", link: "/api/widgets/3-textbox" },
+            { text: ".Divider()", link: "/api/widgets/4-divider" },
           ],
         },
         {
