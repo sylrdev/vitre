@@ -63,6 +63,7 @@ $ crater add wally#sylrdev/vitre@0.2.1
 ```
 
 ## TODO
+- typescript definitions + publish under @rbxts
 - header toggle
 - widgets
     - tree
@@ -70,6 +71,7 @@ $ crater add wally#sylrdev/vitre@0.2.1
     - graphs? (maybe with an addon)
     - extra props
 - dont drag window when in collapse button
+- make windows able to render in widget docks
 - documentation widget examples
 
 ## Credits
