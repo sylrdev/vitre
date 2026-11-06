@@ -18,6 +18,7 @@ type Props = {
 	Visible: Vide.Source<boolean>?,
 	CanCollapse: Prop<boolean>?,
 	CanDrag: Prop<boolean>?,
+	NoHeader: Prop<boolean>?,
 	Children: { [any]: any }?,
 }
 ```
