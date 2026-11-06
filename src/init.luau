@@ -4,6 +4,7 @@ const RunService = game:GetService("RunService")
 const Internal = require("@self/Internal")
 const Theme = require("@self/Theme")
 const Types = require("@self/Types")
+const DeepCopy = require("@self/Utils/DeepCopy")
 const Button = require("@self/Widgets/Button")
 const Checkbox = require("@self/Widgets/Checkbox")
 const Divider = require("@self/Widgets/Divider")
@@ -101,8 +102,20 @@ end
 
 	@param newTheme: Theme - New theme to use.
 ]]
-function Vitre:overrideTheme(theme: Types.Theme)
-	Theme(theme)
+function Vitre:overrideTheme(theme: Types.CustomTheme)
+	local newTheme = DeepCopy(Theme()) :: { [string]: any | { [string]: any } }
+
+	for key, value in pairs(theme :: { [string]: any | { [string]: any } }) do
+		if type(value) == "table" then
+			for nestedKey, nestedValue in pairs(value) do
+				newTheme[key][nestedKey] = nestedValue
+			end
+		else
+			newTheme[key] = value
+		end
+	end
+
+	Theme(newTheme)
 end
 
 return Vitre

@@ -1,3 +1,4 @@
+const Tailwind = require("@game/ReplicatedStorage/Packages/Tailwind")
 const Vitre = require("@game/ReplicatedStorage/Packages/Vitre")
 
 Vitre:setup()
@@ -21,5 +22,15 @@ Vitre:append(function()
 				end,
 			},
 		},
+	}
+end)
+
+task.delay(4, function()
+	Vitre:overrideTheme {
+		Color = {
+			Header = Tailwind.purple[600],
+		},
+
+		TextSize = 20,
 	}
 end)
