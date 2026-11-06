@@ -77,6 +77,7 @@ export default defineConfig({
             { text: ".SameLine()", link: "/api/widgets/6-same-line" },
             { text: ".Button()", link: "/api/widgets/7-button" },
             { text: ".Checkbox()", link: "/api/widgets/8-checkbox" },
+            { text: ".RadioButton()", link: "/api/widgets/9-radio-button" },
           ],
         },
         {
