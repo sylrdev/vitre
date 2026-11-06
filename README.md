@@ -35,7 +35,7 @@ Vitre = "sylrdev/vitre@0.2.3"
 Run the following in your console.
 
 ```sh
-$ pesde add wally#sylrdev/vitre
+pesde add wally#sylrdev/vitre
 ```
 
 ### [Forest](https://forest.dev/)
@@ -43,7 +43,7 @@ $ pesde add wally#sylrdev/vitre
 Run the following in your console.
 
 ```sh
-$ forest i sylrdev/vitre
+forest i sylrdev/vitre
 ```
 
 ### [Ember](https://emberpm.dev/)
@@ -51,7 +51,7 @@ $ forest i sylrdev/vitre
 Run the following in your console.
 
 ```sh
-$ embr add sylrdev/vitre --index wally
+embr add sylrdev/vitre --index wally
 ```
 
 ### [Crater](https://registry.crater-dev.workers.dev/)
@@ -59,7 +59,7 @@ $ embr add sylrdev/vitre --index wally
 Run the following in your console.
 
 ```sh
-$ crater add wally#sylrdev/vitre@0.2.3
+crater add wally#sylrdev/vitre@0.2.3
 ```
 
 ## TODO
