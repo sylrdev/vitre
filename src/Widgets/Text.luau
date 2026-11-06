@@ -1,5 +1,4 @@
 const Vide = require("../../Vide")
-const useKey = require("../Hooks/useKey")
 const Theme = require("../Theme")
 const Types = require("../Types")
 
@@ -21,14 +20,18 @@ return function(props: Props)
 		Name = "TextWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
 		BackgroundTransparency = 1,
-		FontFace = useKey(Theme().Font.Content),
+		FontFace = function()
+			return Theme().Font.Content
+		end,
 		RichText = props.Rich or DEFAULT_RICH,
 		Text = props.Text,
 		TextColor3 = function()
 			local color = read(props.Color) :: Color3
 			return color or Theme().Color.Text
 		end,
-		TextSize = useKey(Theme().TextSize),
+		TextSize = function()
+			return Theme().TextSize
+		end,
 		TextWrapped = props.Wrapped or DEFAULT_WRAPPED,
 		TextXAlignment = Enum.TextXAlignment.Left,
 	}

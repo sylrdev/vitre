@@ -1,5 +1,4 @@
 const Vide = require("../../Vide")
-const useKey = require("../Hooks/useKey")
 const Theme = require("../Theme")
 const Types = require("../Types")
 
@@ -30,16 +29,24 @@ return function(props: Props)
 			Size = function()
 				return UDim2.fromOffset(Theme().Padding.WidgetContainer * 2, Theme().StrokeThickness)
 			end,
-			BackgroundColor3 = useKey(Theme().Color.Stroke),
+			BackgroundColor3 = function()
+				return Theme().Color.Stroke
+			end,
 		},
 
 		create("TextLabel") {
 			AutomaticSize = Enum.AutomaticSize.XY,
 			BackgroundTransparency = 1,
-			FontFace = useKey(Theme().Font.Header),
+			FontFace = function()
+				return Theme().Font.Header
+			end,
 			Text = props.Text,
-			TextColor3 = useKey(Theme().Color.Text),
-			TextSize = useKey(Theme().TextSize),
+			TextColor3 = function()
+				return Theme().Color.Text
+			end,
+			TextSize = function()
+				return Theme().TextSize
+			end,
 		},
 
 		create("Frame") {
@@ -47,7 +54,9 @@ return function(props: Props)
 			Size = function()
 				return UDim2.fromOffset(0, Theme().StrokeThickness)
 			end,
-			BackgroundColor3 = useKey(Theme().Color.Stroke),
+			BackgroundColor3 = function()
+				return Theme().Color.Stroke
+			end,
 
 			create("UIFlexItem") {
 				FlexMode = Enum.UIFlexMode.Fill,

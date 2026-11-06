@@ -1,5 +1,4 @@
 const Vide = require("../../Vide")
-const useKey = require("../Hooks/useKey")
 const Theme = require("../Theme")
 const Types = require("../Types")
 
@@ -40,7 +39,9 @@ return function(props: Props)
 		create("TextButton") {
 			Name = "RadioButton",
 			AutomaticSize = Enum.AutomaticSize.XY,
-			BackgroundColor3 = useKey(Theme().Color.Widget),
+			BackgroundColor3 = function()
+				return Theme().Color.Widget
+			end,
 
 			Activated = function()
 				props.CurrentIndex(props.Index)
@@ -61,7 +62,9 @@ return function(props: Props)
 				Size = function()
 					return UDim2.fromOffset(Theme().TextSize, Theme().TextSize)
 				end,
-				BackgroundColor3 = useKey(Theme().Color.Text),
+				BackgroundColor3 = function()
+					return Theme().Color.Text
+				end,
 				BackgroundTransparency = function()
 					if props.CurrentIndex() == props.Index then
 						return 0
@@ -80,10 +83,16 @@ return function(props: Props)
 			return create("TextLabel") {
 				AutomaticSize = Enum.AutomaticSize.XY,
 				BackgroundTransparency = 1,
-				FontFace = useKey(Theme().Font.Content),
+				FontFace = function()
+					return Theme().Font.Content
+				end,
 				Text = props.Text,
-				TextColor3 = useKey(Theme().Color.Text),
-				TextSize = useKey(Theme().TextSize),
+				TextColor3 = function()
+					return Theme().Color.Text
+				end,
+				TextSize = function()
+					return Theme().TextSize
+				end,
 			}
 		end),
 	}

@@ -1,5 +1,4 @@
 const Vide = require("../../Vide")
-const useKey = require("../Hooks/useKey")
 const Theme = require("../Theme")
 const Types = require("../Types")
 
@@ -32,13 +31,23 @@ return function(props: Props)
 			local width = read(props.Width) :: number or DEFAULT_WIDTH
 			return UDim2.fromOffset(width, 0)
 		end,
-		BackgroundColor3 = useKey(Theme().Color.Widget),
-		FontFace = useKey(Theme().Font.Content),
+		BackgroundColor3 = function()
+			return Theme().Color.Widget
+		end,
+		FontFace = function()
+			return Theme().Font.Content
+		end,
 		PlaceholderText = props.PlaceholderText or DEFAULT_PLACEHOLDER_TEXT,
-		PlaceholderColor3 = useKey(Theme().Color.PlaceholderText),
-		TextColor3 = useKey(Theme().Color.Text),
+		PlaceholderColor3 = function()
+			return Theme().Color.PlaceholderText
+		end,
+		TextColor3 = function()
+			return Theme().Color.Text
+		end,
 		Text = props.Text,
-		TextSize = useKey(Theme().TextSize),
+		TextSize = function()
+			return Theme().TextSize
+		end,
 		TextWrapped = props.Wrapped or DEFAULT_WRAPPED,
 		TextXAlignment = Enum.TextXAlignment.Left,
 

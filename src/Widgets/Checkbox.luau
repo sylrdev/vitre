@@ -1,5 +1,4 @@
 const Vide = require("../../Vide")
-const useKey = require("../Hooks/useKey")
 const Images = require("../Images")
 const Theme = require("../Theme")
 const Types = require("../Types")
@@ -40,7 +39,9 @@ return function(props: Props)
 		create("TextButton") {
 			Name = "Checkbox",
 			AutomaticSize = Enum.AutomaticSize.XY,
-			BackgroundColor3 = useKey(Theme().Color.Widget),
+			BackgroundColor3 = function()
+				return Theme().Color.Widget
+			end,
 
 			Activated = function()
 				props.Checked(not props.Checked())
@@ -78,10 +79,16 @@ return function(props: Props)
 			return create("TextLabel") {
 				AutomaticSize = Enum.AutomaticSize.XY,
 				BackgroundTransparency = 1,
-				FontFace = useKey(Theme().Font.Content),
+				FontFace = function()
+					return Theme().Font.Content
+				end,
 				Text = props.Text,
-				TextColor3 = useKey(Theme().Color.Text),
-				TextSize = useKey(Theme().TextSize),
+				TextColor3 = function()
+					return Theme().Color.Text
+				end,
+				TextSize = function()
+					return Theme().TextSize
+				end,
 			}
 		end),
 	}

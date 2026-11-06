@@ -1,6 +1,5 @@
 const Vide = require("../Vide")
 const DraggingHandler = require("./DraggingHandler")
-const useKey = require("./Hooks/useKey")
 const Images = require("./Images")
 const Internal = require("./Internal")
 const Theme = require("./Theme")
@@ -132,7 +131,9 @@ return function(props: Props)
 				end
 			end,
 			Position = framePosition,
-			BackgroundColor3 = useKey(Theme().Color.WidgetContainer),
+			BackgroundColor3 = function()
+				return Theme().Color.WidgetContainer
+			end,
 			ZIndex = zIndex,
 
 			action(function(instance)
@@ -149,8 +150,12 @@ return function(props: Props)
 			},
 
 			create("UIStroke") {
-				Color = useKey(Theme().Color.Stroke),
-				Thickness = useKey(Theme().StrokeThickness),
+				Color = function()
+					return Theme().Color.Stroke
+				end,
+				Thickness = function()
+					return Theme().StrokeThickness
+				end,
 			},
 
 			create("UIListLayout") {
@@ -162,7 +167,9 @@ return function(props: Props)
 				Size = function()
 					return UDim2.fromOffset(0, headerHeight())
 				end,
-				BackgroundColor3 = useKey(Theme().Color.Header),
+				BackgroundColor3 = function()
+					return Theme().Color.Header
+				end,
 
 				create("UICorner") {
 					CornerRadius = cornerRadius,
@@ -209,10 +216,16 @@ return function(props: Props)
 					Name = "TitleLabel",
 					AutomaticSize = Enum.AutomaticSize.XY,
 					BackgroundTransparency = 1,
-					FontFace = useKey(Theme().Font.Header),
+					FontFace = function()
+						return Theme().Font.Header
+					end,
 					Text = props.Title or DEFAULT_TITLE,
-					TextColor3 = useKey(Theme().Color.Text),
-					TextSize = useKey(Theme().TextSize),
+					TextColor3 = function()
+						return Theme().Color.Text
+					end,
+					TextSize = function()
+						return Theme().TextSize
+					end,
 				},
 
 				create("Frame") {
@@ -226,7 +239,9 @@ return function(props: Props)
 
 			create("ScrollingFrame") {
 				Name = "WidgetContainer",
-				BackgroundColor3 = useKey(Theme().Color.WidgetContainer),
+				BackgroundColor3 = function()
+					return Theme().Color.WidgetContainer
+				end,
 				Visible = function()
 					return collapsed() == false
 				end,

@@ -1,6 +1,7 @@
 const Vitre = require("@game/ReplicatedStorage/Packages/Vitre")
 
 Vitre:setup()
+
 Vitre:append(function()
 	local cookies = Vitre.Vide.source(0)
 

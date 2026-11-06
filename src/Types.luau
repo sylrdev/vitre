@@ -31,4 +31,31 @@ export type Theme = {
 	TextSize: number,
 }
 
+export type CustomTheme = {
+	Color: {
+		Header: Color3?,
+		WidgetContainer: Color3?,
+		Stroke: Color3?,
+		Text: Color3?,
+		PlaceholderText: Color3?,
+		Widget: Color3?,
+	}?,
+
+	CornerRadius: number?,
+
+	Font: {
+		Header: Font?,
+		Content: Font?,
+	}?,
+
+	Padding: {
+		WidgetContainer: number?,
+		Widget: number?,
+	}?,
+
+	StrokeThickness: number?,
+
+	TextSize: number?,
+}
+
 return nil

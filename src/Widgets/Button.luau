@@ -1,5 +1,4 @@
 const Vide = require("../../Vide")
-const useKey = require("../Hooks/useKey")
 const Theme = require("../Theme")
 const Types = require("../Types")
 
@@ -20,11 +19,19 @@ return function(props: Props)
 	return create("TextButton") {
 		Name = "ButtonWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
-		BackgroundColor3 = useKey(Theme().Color.Widget),
-		FontFace = useKey(Theme().Font.Content),
+		BackgroundColor3 = function()
+			return Theme().Color.Widget
+		end,
+		FontFace = function()
+			return Theme().Font.Content
+		end,
 		Text = props.Text,
-		TextColor3 = useKey(Theme().Color.Text),
-		TextSize = useKey(Theme().TextSize),
+		TextColor3 = function()
+			return Theme().Color.Text
+		end,
+		TextSize = function()
+			return Theme().TextSize
+		end,
 
 		Activated = props.Activated,
 
