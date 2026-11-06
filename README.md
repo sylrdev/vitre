@@ -27,7 +27,7 @@ Add the following to your `wally.toml` file and run `wally install` in your cons
 
 ```toml
 [Packages]
-Vitre = "sylrdev/vitre@0.2.0"
+Vitre = "sylrdev/vitre@0.2.1"
 ```
 
 ### [Pesde](https://pesde.dev/)
@@ -59,7 +59,7 @@ $ embr add sylrdev/vitre --index wally
 Run the following in your console.
 
 ```sh
-$ crater add wally#sylrdev/vitre@0.2.0
+$ crater add wally#sylrdev/vitre@0.2.1
 ```
 
 ## TODO
@@ -71,3 +71,9 @@ $ crater add wally#sylrdev/vitre@0.2.0
     - extra props
 - dont drag window when in collapse button
 - documentation widget examples
+
+## Credits
+- [Vide](https://github.com/centau/vide) for providing the framework Vitre is based on
+- [Iris](https://github.com/SirMallard/Iris) for being a pillar in the creation of this resource
+- [ui-labs](https://github.com/PepeElToro41/ui-labs) for making such a great storybook plugin
+- The [Replecs Docs](https://pepeeltoro41.github.io/replecs/) which I followed the documentation redacting style of
