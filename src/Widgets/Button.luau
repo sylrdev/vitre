@@ -20,7 +20,7 @@ return function(props: Props)
 		Name = "ButtonWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
 		BackgroundColor3 = function()
-			return Theme().Color.Widget
+			return Theme().Color.WidgetLight
 		end,
 		FontFace = function()
 			return Theme().Font.Content

@@ -4,7 +4,6 @@ const Theme = require("../Theme")
 const Types = require("../Types")
 
 const create = Vide.create
-const derive = Vide.derive
 const read = Vide.read
 const show = Vide.show
 
@@ -14,10 +13,6 @@ type Props = {
 }
 
 return function(props: Props)
-	local padding = derive(function()
-		return UDim.new(0, Theme().Padding.Widget)
-	end)
-
 	local hasTextProp = function()
 		return read(props.Text) ~= nil
 	end
@@ -38,9 +33,11 @@ return function(props: Props)
 
 		create("TextButton") {
 			Name = "Checkbox",
-			AutomaticSize = Enum.AutomaticSize.XY,
+			Size = function()
+				return UDim2.fromOffset(Theme().TextSize, Theme().TextSize)
+			end,
 			BackgroundColor3 = function()
-				return Theme().Color.Widget
+				return Theme().Color.WidgetDark
 			end,
 
 			Activated = function()
@@ -53,24 +50,18 @@ return function(props: Props)
 				end,
 			},
 
-			create("UIPadding") {
-				PaddingRight = padding,
-				PaddingTop = padding,
-				PaddingBottom = padding,
-				PaddingLeft = padding,
-			},
-
 			create("ImageLabel") {
-				Size = function()
-					return UDim2.fromOffset(Theme().TextSize, Theme().TextSize)
-				end,
+				Size = UDim2.fromScale(1, 1),
 				BackgroundTransparency = 1,
 				Image = function()
 					if props.Checked() == true then
-						return Images.Check
+						return Images.Cross
 					else
 						return ""
 					end
+				end,
+				ImageColor3 = function()
+					return Theme().Color.WidgetLight
 				end,
 			},
 		},

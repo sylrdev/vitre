@@ -32,7 +32,7 @@ return function(props: Props)
 			return UDim2.fromOffset(width, 0)
 		end,
 		BackgroundColor3 = function()
-			return Theme().Color.Widget
+			return Theme().Color.WidgetDark
 		end,
 		FontFace = function()
 			return Theme().Font.Content

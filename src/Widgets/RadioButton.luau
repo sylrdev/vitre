@@ -3,7 +3,6 @@ const Theme = require("../Theme")
 const Types = require("../Types")
 
 const create = Vide.create
-const derive = Vide.derive
 const read = Vide.read
 const show = Vide.show
 
@@ -14,10 +13,6 @@ type Props = {
 }
 
 return function(props: Props)
-	local padding = derive(function()
-		return UDim.new(0, Theme().Padding.Widget)
-	end)
-
 	local hasTextProp = function()
 		return read(props.Text) ~= nil
 	end
@@ -38,9 +33,11 @@ return function(props: Props)
 
 		create("TextButton") {
 			Name = "RadioButton",
-			AutomaticSize = Enum.AutomaticSize.XY,
+			Size = function()
+				return UDim2.fromOffset(Theme().TextSize, Theme().TextSize)
+			end,
 			BackgroundColor3 = function()
-				return Theme().Color.Widget
+				return Theme().Color.WidgetDark
 			end,
 
 			Activated = function()
@@ -51,19 +48,12 @@ return function(props: Props)
 				CornerRadius = UDim.new(1),
 			},
 
-			create("UIPadding") {
-				PaddingRight = padding,
-				PaddingTop = padding,
-				PaddingBottom = padding,
-				PaddingLeft = padding,
-			},
-
 			create("Frame") {
-				Size = function()
-					return UDim2.fromOffset(Theme().TextSize, Theme().TextSize)
-				end,
+				Size = UDim2.fromScale(0.6, 0.6),
+				Position = UDim2.fromScale(0.5, 0.5),
+				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundColor3 = function()
-					return Theme().Color.Text
+					return Theme().Color.WidgetLight
 				end,
 				BackgroundTransparency = function()
 					if props.CurrentIndex() == props.Index then
