@@ -258,7 +258,7 @@ return function(props: Props)
 					Activated = function()
 						local canCollapse = read(props.CanCollapse) :: boolean
 
-						if canCollapse == false then
+						if canCollapse == false or dragging == true then
 							return
 						end
 

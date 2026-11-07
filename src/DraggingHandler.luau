@@ -76,6 +76,7 @@ function DraggingHandler:_findPointerTarget(pointerPosition: Vector2): Types.Win
 	for _, window in ipairs(windows) do
 		const inset = GuiService:GetGuiInset()
 		const header = window.Header
+
 		const minX = header.AbsolutePosition.X
 		const maxX = header.AbsolutePosition.X + header.AbsoluteSize.X
 		const minY = header.AbsolutePosition.Y + inset.Y
