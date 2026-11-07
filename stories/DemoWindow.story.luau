@@ -121,6 +121,25 @@ return {
 						return string.format("Selected option: %i", radioButtonIndex())
 					end,
 				},
+
+				Vitre.Widget.DividerText {
+					Text = "Trees",
+				},
+
+				Vitre.Widget.Tree {
+					Children = {
+						Vitre.Widget.Text {
+							Text = "Hello World!",
+						},
+
+						Vitre.Widget.Button {
+							Text = "Goog",
+							Activated = function()
+								print("Goog")
+							end,
+						},
+					},
+				},
 			},
 		}
 	end,

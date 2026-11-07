@@ -14,6 +14,7 @@ const RadioButton = require("@self/Widgets/RadioButton")
 const SameLine = require("@self/Widgets/SameLine")
 const Text = require("@self/Widgets/Text")
 const TextBox = require("@self/Widgets/TextBox")
+const Tree = require("@self/Widgets/Tree")
 const Window = require("@self/Window")
 const Vide = require("./Vide")
 
@@ -40,6 +41,8 @@ const Vitre = {
 		Button = Button,
 		Checkbox = Checkbox,
 		RadioButton = RadioButton,
+
+		Tree = Tree,
 	},
 
 	Vide = Vide,
