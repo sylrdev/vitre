@@ -140,6 +140,23 @@ return {
 						},
 					},
 				},
+
+				Vitre.Widget.Tree {
+					Collapsed = true,
+					IsTitle = true,
+					Children = {
+						Vitre.Widget.Text {
+							Text = "Hello World!",
+						},
+
+						Vitre.Widget.Button {
+							Text = "Goog",
+							Activated = function()
+								print("Goog")
+							end,
+						},
+					},
+				},
 			},
 		}
 	end,
