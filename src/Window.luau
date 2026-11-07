@@ -16,6 +16,7 @@ const show = Vide.show
 const derive = Vide.derive
 
 const DEFAULT_SIZE = Vector2.new(400, 450)
+const DEFAULT_POSITION = Vector2.new(Theme().StrokeThickness, Theme().StrokeThickness)
 const DEFAULT_TITLE = "Window"
 const DEFAULT_VISIBLE = true
 const DEFAULT_FILL_HEIGHT = false
@@ -25,6 +26,7 @@ local zIndex = 0
 
 type Props = {
 	Size: Types.Prop<Vector2>?,
+	Position: Vector2?,
 	Title: Types.Prop<string>?,
 	Visible: Vide.Source<boolean>?,
 	CanCollapse: Types.Prop<boolean>?,
@@ -40,7 +42,13 @@ return function(props: Props)
 
 	local dragging = false
 	local initialPointerPoisiton = Internal.PointerPosition()
-	local initialFramePosition = UDim2.fromOffset(Theme().StrokeThickness, Theme().StrokeThickness)
+	local initialFramePosition = (function()
+		if props.Position ~= nil then
+			return UDim2.fromOffset(props.Position.X, props.Position.Y)
+		else
+			return UDim2.fromOffset(DEFAULT_POSITION.X, DEFAULT_POSITION.Y)
+		end
+	end)()
 	local framePosition = source(initialFramePosition)
 	local absoluteFrameSize = source(Vector2.zero)
 

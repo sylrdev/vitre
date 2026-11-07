@@ -16,6 +16,7 @@ return {
 		Vitre:overrideUserInput(UILabs.Environment.UserInput)
 
 		return Vitre.Window {
+			Position = Vector2.new(20, 20),
 			Visible = props.controls["Visible"],
 			CanCollapse = props.controls["CanCollapse"],
 			CanDrag = props.controls["CanDrag"],
