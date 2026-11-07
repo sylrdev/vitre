@@ -18,6 +18,8 @@ const derive = Vide.derive
 const DEFAULT_SIZE = Vector2.new(400, 450)
 const DEFAULT_TITLE = "Window"
 const DEFAULT_VISIBLE = true
+const DEFAULT_FILL_HEIGHT = false
+const DEFAULT_FILL_WIDTH = false
 
 local zIndex = 0
 
@@ -28,6 +30,8 @@ type Props = {
 	CanCollapse: Types.Prop<boolean>?,
 	CanDrag: Types.Prop<boolean>?,
 	NoHeader: Types.Prop<boolean>?,
+	FillHeight: Types.Prop<boolean>?,
+	FillWidth: Types.Prop<boolean>?,
 	Children: { [any]: any }?,
 }
 
@@ -133,12 +137,32 @@ return function(props: Props)
 		return create("Frame") {
 			Name = "Window",
 			Size = function()
-				local size = read(props.Size) :: Vector2 or DEFAULT_SIZE
+				const size = read(props.Size) :: Vector2 or DEFAULT_SIZE
+				const fillHeight = read(props.FillHeight) :: boolean or DEFAULT_FILL_HEIGHT
+				const fillWidth = read(props.FillWidth) :: boolean or DEFAULT_FILL_WIDTH
+
+				local newSize: UDim2
+
+				if fillHeight == true then
+					newSize = UDim2.new(0, 0, 1, -Theme().StrokeThickness * 2)
+				else
+					newSize = UDim2.fromOffset(0, size.Y)
+				end
+
+				if fillWidth == true then
+					newSize = UDim2.new(1, -Theme().StrokeThickness * 2, newSize.Y.Scale, newSize.Y.Offset)
+				else
+					newSize = UDim2.new(0, size.X, newSize.Y.Scale, newSize.Y.Offset)
+				end
 
 				if collapsed() == true then
-					return UDim2.fromOffset(size.X, 20)
+					if fillWidth == true then
+						return UDim2.new(1, newSize.X.Offset, 0, 20)
+					else
+						return UDim2.fromOffset(size.X, 20)
+					end
 				else
-					return UDim2.fromOffset(size.X, size.Y)
+					return newSize
 				end
 			end,
 			Position = framePosition,
