@@ -14,6 +14,7 @@ return {
 		local radioButtonIndex = source(1)
 
 		return Vitre.Window {
+			Size = Vector2.new(400, 550),
 			Title = "Demo Window",
 			Children = {
 				Vitre.Widget.DividerText {

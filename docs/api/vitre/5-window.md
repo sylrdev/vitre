@@ -22,7 +22,7 @@ type Props = {
 	NoHeader: Prop<boolean>?,
 	FillHeight: Prop<boolean>?,
 	FillWidth: Prop<boolean>?,
-	Children: { [any]: any }?,
+	Children: { [any]: any },
 }
 ```
 

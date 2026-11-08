@@ -34,7 +34,7 @@ type Props = {
 	NoHeader: Types.Prop<boolean>?,
 	FillHeight: Types.Prop<boolean>?,
 	FillWidth: Types.Prop<boolean>?,
-	Children: { [any]: any }?,
+	Children: { [any]: any },
 }
 
 return function(props: Props)

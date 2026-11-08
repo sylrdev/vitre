@@ -47,6 +47,7 @@ export default defineConfig({
             },
             { text: "Reactive Window", link: "/get-started/6-reactive-window" },
             { text: "Stories", link: "/get-started/7-stories" },
+            { text: "Custom Theme", link: "/get-started/8-custom-theme" },
           ],
         },
       ],

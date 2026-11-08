@@ -23,6 +23,7 @@ return {
 			NoHeader = props.controls["NoHeader"],
 			FillHeight = props.controls["FillHeight"],
 			FillWidth = props.controls["FillWidth"],
+			Children = {},
 		}
 	end,
 }

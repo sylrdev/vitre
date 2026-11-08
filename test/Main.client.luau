@@ -1,4 +1,3 @@
-const Tailwind = require("@game/ReplicatedStorage/Packages/Tailwind")
 const Vitre = require("@game/ReplicatedStorage/Packages/Vitre")
 
 Vitre:setup()
@@ -25,12 +24,14 @@ Vitre:append(function()
 	}
 end)
 
-task.delay(4, function()
-	Vitre:overrideTheme {
-		Color = {
-			Header = Tailwind.purple[600],
-		},
-
-		TextSize = 20,
-	}
-end)
+-- Vitre:overrideTheme {
+-- 	Color = {
+-- 		Header = Color3.fromRGB(255, 100, 100),
+-- 	},
+--
+-- 	Font = {
+-- 		Content = Font.fromName("LuckiestGuy", Enum.FontWeight.Regular, Enum.FontStyle.Italic),
+-- 	},
+--
+-- 	CornerRadius = 0,
+-- }
