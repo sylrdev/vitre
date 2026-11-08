@@ -19,7 +19,8 @@ export type CustomTheme = {
 		Stroke: Color3?,
 		Text: Color3?,
 		PlaceholderText: Color3?,
-		Widget: Color3?,
+		WidgetLight: Color3?,
+		WidgetDark: Color3?,
 	}?,
 
 	CornerRadius: number?,

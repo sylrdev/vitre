@@ -14,10 +14,14 @@ function Vitre.Window(props: Props)
 ```luau
 type Props = {
 	Size: Prop<Vector2>?,
+	Position: Vector2?,
 	Title: Prop<string>?,
 	Visible: Vide.Source<boolean>?,
 	CanCollapse: Prop<boolean>?,
 	CanDrag: Prop<boolean>?,
+	NoHeader: Prop<boolean>?,
+	FillHeight: Prop<boolean>?,
+	FillWidth: Prop<boolean>?,
 	Children: { [any]: any }?,
 }
 ```

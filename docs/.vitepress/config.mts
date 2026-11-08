@@ -78,6 +78,7 @@ export default defineConfig({
             { text: ".Button()", link: "/api/widgets/7-button" },
             { text: ".Checkbox()", link: "/api/widgets/8-checkbox" },
             { text: ".RadioButton()", link: "/api/widgets/9-radio-button" },
+            { text: ".Tree()", link: "/api/widgets/10-tree" },
           ],
         },
         {
