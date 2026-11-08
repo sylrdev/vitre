@@ -49,6 +49,7 @@ const Vitre = {
 }
 
 export type Prop<T> = Types.Prop<T>
+export type CustomTheme = Types.CustomTheme
 
 --[[
 	Sets up the app to render windows in while emulating.
