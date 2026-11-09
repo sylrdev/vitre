@@ -79,7 +79,7 @@ If you don't understand why the `Text` property of our text widget is a function
 
 And here we go, we now have text in our window, reading the content of the source.
 
-![image](../assets/6-reactive-window.png)
+<img src="/assets/6-reactive-window.png" width="400">
 
 ## Step 3: Incrementing
 
