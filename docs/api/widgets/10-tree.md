@@ -2,6 +2,8 @@
 
 Returns a tree widget Vide component.
 
+<img src="/assets/10-tree.png" width="400">
+
 ```luau
 function(props: Props)
 ```

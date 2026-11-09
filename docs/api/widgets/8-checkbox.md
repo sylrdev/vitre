@@ -2,6 +2,8 @@
 
 Returns a checkbox widget Vide component.
 
+<img src="/assets/8-checkbox.png" width="400">
+
 ```luau
 function(props: Props)
 ```

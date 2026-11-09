@@ -2,6 +2,8 @@
 
 Returns an indent widget Vide component.
 
+<img src="/assets/5-indent.png" width="400">
+
 ```luau
 function(props: Props)
 ```

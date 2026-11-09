@@ -9,4 +9,4 @@ You don't want to jump in with eyes closed just in case Vitre doesn't suit your 
 
 The demo window features every widgets available in Vitre.
 
-<img src="/assets/3-1-gallery.png" width="400" alt="Example image">
+<img src="/assets/3-1-gallery.png" width="400">

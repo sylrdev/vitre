@@ -2,6 +2,8 @@
 
 Returns a button widget Vide component.
 
+<img src="/assets/7-button.png" width="400">
+
 ```luau
 function(props: Props)
 ```

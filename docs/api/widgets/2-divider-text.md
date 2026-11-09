@@ -2,6 +2,8 @@
 
 Returns a divider text widget Vide component.
 
+<img src="/assets/2-divider-text.png" width="400">
+
 ```luau
 function(props: Props)
 ```

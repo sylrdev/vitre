@@ -37,4 +37,4 @@ Vitre:overrdeTheme(MyTheme)
 
 And this should be the result!
 
-<img src="/assets/8-custom-theme.png" width="400" alt="Example image">
+<img src="/assets/8-custom-theme.png" width="400">

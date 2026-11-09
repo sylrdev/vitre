@@ -2,6 +2,8 @@
 
 Returns a textbox widget Vide component.
 
+<img src="/assets/3-textbox.png" width="400">
+
 ```luau
 function(props: Props)
 ```

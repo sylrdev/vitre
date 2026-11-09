@@ -2,6 +2,8 @@
 
 Returns a radio button widget Vide component.
 
+<img src="/assets/9-radio-button.png" width="400">
+
 ```luau
 function(props: Props)
 ```
