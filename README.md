@@ -65,16 +65,13 @@ crater add wally#sylrdev/vitre@0.3.0
 ## TODO
 - typescript definitions + publish under @rbxts
 - widgets
-    - tree
     - table
     - graphs? (maybe with an addon)
-    - extra props
-- dont drag window when in collapse button
-- make windows able to render in widget docks
+- make windows able to render in widget docks (should already work but needs testing)
 - documentation widget examples
 
 ## Credits
 - [Vide](https://github.com/centau/vide) for providing the framework Vitre is based on
 - [Iris](https://github.com/SirMallard/Iris) for being a pillar in the creation of this resource
 - [ui-labs](https://github.com/PepeElToro41/ui-labs) for making such a great storybook plugin
-- The [Replecs Docs](https://pepeeltoro41.github.io/replecs/) of which I followed the API reference writting style
+- The [Replecs Docs](https://pepeeltoro41.github.io/replecs/) of which I followed the API reference writing style
