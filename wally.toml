@@ -1,7 +1,7 @@
 [package]
 name = "sylrdev/vitre"
-description = "Developer focused UI library based on Vide."
-version = "0.2.3"
+description = "Vide addon for developer tools."
+version = "0.3.0"
 license = "MIT"
 authors = ["SylrDev <sylrdev@gmail.com>"]
 realm = "shared"

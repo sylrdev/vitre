@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Vitre"
-  text: "Developer focused UI based on Vide"
-  tagline: Speeds up developer tools development
+  text: "Vide addon for developer tools"
+  tagline: Testing, debugging, plugins, Vitre fits all.
   image:
     src: logo.svg
   actions:
