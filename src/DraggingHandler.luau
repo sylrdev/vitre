@@ -76,18 +76,35 @@ function DraggingHandler:_findPointerTarget(pointerPosition: Vector2): Types.Win
 	for _, window in ipairs(windows) do
 		const inset = GuiService:GetGuiInset()
 		const header = window.Header
+		const collapseButton = header.CollapseButton
 
-		const minX = header.AbsolutePosition.X
-		const maxX = header.AbsolutePosition.X + header.AbsoluteSize.X
-		const minY = header.AbsolutePosition.Y + inset.Y
-		const maxY = header.AbsolutePosition.Y + inset.Y + header.AbsoluteSize.Y
+		local isPointerInHeader = false
+		do
+			const minX = header.AbsolutePosition.X
+			const maxX = header.AbsolutePosition.X + header.AbsoluteSize.X
+			const minY = header.AbsolutePosition.Y + inset.Y
+			const maxY = header.AbsolutePosition.Y + inset.Y + header.AbsoluteSize.Y
 
-		if
-			(pointerPosition.X >= minX)
-			and (pointerPosition.X <= maxX)
-			and (pointerPosition.Y >= minY)
-			and (pointerPosition.Y <= maxY)
-		then
+			isPointerInHeader = (pointerPosition.X >= minX)
+				and (pointerPosition.X <= maxX)
+				and (pointerPosition.Y >= minY)
+				and (pointerPosition.Y <= maxY)
+		end
+
+		local isPointerInCollapseButton = false
+		do
+			const minX = collapseButton.AbsolutePosition.X
+			const maxX = collapseButton.AbsolutePosition.X + collapseButton.AbsoluteSize.X
+			const minY = collapseButton.AbsolutePosition.Y + inset.Y
+			const maxY = collapseButton.AbsolutePosition.Y + inset.Y + collapseButton.AbsoluteSize.Y
+
+			isPointerInCollapseButton = (pointerPosition.X >= minX)
+				and (pointerPosition.X <= maxX)
+				and (pointerPosition.Y >= minY)
+				and (pointerPosition.Y <= maxY)
+		end
+
+		if isPointerInHeader == true and isPointerInCollapseButton == false then
 			target = window
 		end
 	end

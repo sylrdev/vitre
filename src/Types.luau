@@ -2,7 +2,11 @@ const Vide = require("../Vide")
 
 export type Prop<T> = T | Vide.Source<T>
 
-export type Window = Frame & { Header: Frame }
+export type Window = Frame & {
+	Header: Frame & {
+		CollapseButton: ImageButton,
+	},
+}
 
 export type Theme = {
 	Color: {
