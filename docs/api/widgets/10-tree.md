@@ -18,6 +18,7 @@ type Props = {
 	Text: Prop<string>?,
 	Collapsed: boolean?,
 	IsTitle: Prop<boolean>?,
+    LayoutOrder: Prop<number>?,
 	Children: { [any]: any },
 }
 ```

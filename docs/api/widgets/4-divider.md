@@ -14,5 +14,7 @@ function(props: Props)
 ### Types
 - **Props**:
 ```luau
-type Props = {}
+type Props = {
+    LayoutOrder: Prop<number>?,
+}
 ```

@@ -18,6 +18,7 @@ type Props = {
 	Index: number,
 	CurrentIndex: Vide.Source<number>,
 	Text: Prop<string>?,
+    LayoutOrder: Prop<number>?,
 }
 ```
 

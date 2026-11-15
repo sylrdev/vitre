@@ -17,6 +17,7 @@ function(props: Props)
 type Props = {
 	Checked: Vide.Source<boolean>,
 	Text: Prop<string>?,
+    LayoutOrder: Prop<number>?,
 }
 ```
 

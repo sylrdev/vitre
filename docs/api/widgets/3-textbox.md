@@ -19,6 +19,7 @@ type Props = {
 	Text: Vide.Source<string>,
 	Width: Prop<number>?,
 	Wrapped: Prop<boolean>?,
+    LayoutOrder: Prop<number>?,
 }
 ```
 

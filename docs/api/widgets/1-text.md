@@ -19,6 +19,7 @@ type Props = {
 	Color: Prop<Color3>?,
 	Rich: Prop<boolean>?,
 	Wrapped: Prop<boolean>?,
+    LayoutOrder: Prop<number>?,
 }
 ```
 

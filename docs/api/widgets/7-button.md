@@ -16,6 +16,7 @@ function(props: Props)
 ```luau
 type Props = {
     Text: Prop<string>,
+    LayoutOrder: Prop<number>?,
 	Activated: (InputObject, number) -> (),
 }
 ```
