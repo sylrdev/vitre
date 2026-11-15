@@ -67,6 +67,7 @@ function Vitre:setup()
 		--selene:allow(mixed_table)
 		return create("ScreenGui") {
 			Name = "VitreApp",
+			DisplayOrder = 10000,
 
 			create("Frame") {
 				Name = "WindowContainer",

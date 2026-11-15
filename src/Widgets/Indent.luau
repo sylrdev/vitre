@@ -1,9 +1,11 @@
 const Vide = require("../../Vide")
 const Theme = require("../Theme")
+const Types = require("../Types")
 
 const create = Vide.create
 
 type Props = {
+	LayoutOrder: Types.Prop<number>?,
 	[any]: any,
 }
 
@@ -13,6 +15,7 @@ return function(props: Props)
 		Name = "IndentWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 
 		create("UIPadding") {
 			PaddingLeft = function()

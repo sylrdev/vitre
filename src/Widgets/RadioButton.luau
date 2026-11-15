@@ -10,6 +10,7 @@ type Props = {
 	Index: number,
 	CurrentIndex: Vide.Source<number>,
 	Text: Types.Prop<string>?,
+	LayoutOrder: Types.Prop<number>?,
 }
 
 return function(props: Props)
@@ -22,6 +23,7 @@ return function(props: Props)
 		Name = "RadioButtonWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 
 		create("UIListLayout") {
 			FillDirection = Enum.FillDirection.Horizontal,

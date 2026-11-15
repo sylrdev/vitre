@@ -6,6 +6,7 @@ const create = Vide.create
 
 type Props = {
 	Text: Types.Prop<string>,
+	LayoutOrder: Types.Prop<number>?,
 }
 
 return function(props: Props)
@@ -15,6 +16,7 @@ return function(props: Props)
 		AutomaticSize = Enum.AutomaticSize.Y,
 		Size = UDim2.fromScale(1, 0),
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 
 		create("UIListLayout") {
 			FillDirection = Enum.FillDirection.Horizontal,

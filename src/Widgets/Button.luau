@@ -7,6 +7,7 @@ const derive = Vide.derive
 
 type Props = {
 	Text: Types.Prop<string>,
+	LayoutOrder: Types.Prop<number>?,
 	Activated: (InputObject, number) -> (),
 }
 
@@ -22,6 +23,7 @@ return function(props: Props)
 		BackgroundColor3 = function()
 			return Theme().Color.WidgetLight
 		end,
+		LayoutOrder = props.LayoutOrder,
 		FontFace = function()
 			return Theme().Font.Content
 		end,

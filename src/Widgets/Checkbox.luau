@@ -10,6 +10,7 @@ const show = Vide.show
 type Props = {
 	Checked: Vide.Source<boolean>,
 	Text: Types.Prop<string>?,
+	LayoutOrder: Types.Prop<number>?,
 }
 
 return function(props: Props)
@@ -22,6 +23,7 @@ return function(props: Props)
 		Name = "CheckboxWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 
 		create("UIListLayout") {
 			FillDirection = Enum.FillDirection.Horizontal,

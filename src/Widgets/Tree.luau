@@ -17,6 +17,7 @@ type Props = {
 	Text: Types.Prop<string>?,
 	Collapsed: boolean?,
 	IsTitle: Types.Prop<boolean>?,
+	LayoutOrder: Types.Prop<number>?,
 	Children: { [any]: any },
 }
 
@@ -32,6 +33,7 @@ return function(props: Props)
 		AutomaticSize = Enum.AutomaticSize.Y,
 		Size = UDim2.fromScale(1, 0),
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 
 		create("UIListLayout") {
 			HorizontalFlex = Enum.UIFlexAlignment.Fill,

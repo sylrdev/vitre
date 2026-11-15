@@ -1,9 +1,11 @@
 const Vide = require("../../Vide")
 const Theme = require("../Theme")
+const Types = require("../Types")
 
 const create = Vide.create
 
 type Props = {
+	LayoutOrder: Types.Prop<number>?,
 	[any]: any,
 }
 
@@ -14,6 +16,7 @@ return function(props: Props)
 		AutomaticSize = Enum.AutomaticSize.Y,
 		Size = UDim2.fromScale(1, 0),
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 
 		create("UIListLayout") {
 			FillDirection = Enum.FillDirection.Horizontal,

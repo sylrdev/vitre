@@ -16,6 +16,7 @@ type Props = {
 	Text: Vide.Source<string>,
 	Width: Types.Prop<number>?,
 	Wrapped: Types.Prop<boolean>?,
+	LayoutOrder: Types.Prop<number>?,
 }
 
 return function(props: Props)
@@ -34,6 +35,7 @@ return function(props: Props)
 		BackgroundColor3 = function()
 			return Theme().Color.WidgetDark
 		end,
+		LayoutOrder = props.LayoutOrder,
 		FontFace = function()
 			return Theme().Font.Content
 		end,

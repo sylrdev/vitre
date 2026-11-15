@@ -13,6 +13,7 @@ type Props = {
 	Color: Types.Prop<Color3>?,
 	Rich: Types.Prop<boolean>?,
 	Wrapped: Types.Prop<boolean>?,
+	LayoutOrder: Types.Prop<number>?,
 }
 
 return function(props: Props)
@@ -20,6 +21,7 @@ return function(props: Props)
 		Name = "TextWidget",
 		AutomaticSize = Enum.AutomaticSize.XY,
 		BackgroundTransparency = 1,
+		LayoutOrder = props.LayoutOrder,
 		FontFace = function()
 			return Theme().Font.Content
 		end,
